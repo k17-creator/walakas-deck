@@ -555,6 +555,50 @@ body.is-mobile .guide-row      { flex-wrap: wrap; gap: 4px; }
 body.is-mobile .glabel         { min-width: 50px; }
 body.is-mobile .gtext          { font-size: 12px; }
 body.is-mobile .gtags          { padding: 6px 10px; }
+
+/* ── SUBMIT BAR ── */
+.submit-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  padding: 14px 20px 18px;
+  background: linear-gradient(transparent, rgba(240,240,240,0.97) 35%);
+  display: flex;
+  justify-content: center;
+  z-index: 200;
+  pointer-events: none;
+}
+.submit-btn {
+  pointer-events: auto;
+  padding: 13px 52px;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  border: none;
+  border-radius: 4px;
+  background: var(--orange);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: 0 4px 18px rgba(232,98,42,0.38);
+}
+.submit-btn:hover:not(:disabled) { background: #d04f18; }
+.submit-btn:disabled {
+  background: var(--mid);
+  color: var(--gray);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.submit-btn.sending {
+  background: var(--gray);
+  color: var(--white);
+  cursor: wait;
+}
+.submit-btn.done {
+  background: var(--navy);
+  box-shadow: 0 4px 18px rgba(13,27,42,0.25);
+}
+body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 </style>
 </head>
 <body>
@@ -1626,13 +1670,114 @@ body.is-mobile .gtags          { padding: 6px 10px; }
 
 </div><!-- /page-wrap -->
 
+<div class="submit-bar" id="submit-bar">
+  <button class="submit-btn" id="submit-btn" disabled onclick="submitData()">回答を送信</button>
+</div>
+
 <script>
+var GAS_URL = '';
+
 function showRole(id) {
   document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
   document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
   event.currentTarget.classList.add('active');
   document.getElementById('role-' + id).classList.add('active');
   document.querySelector('.opening-box').style.display = id === 'guide' ? 'none' : '';
+  var bar = document.getElementById('submit-bar');
+  if (bar) bar.style.display = id === 'guide' ? 'none' : '';
+  if (typeof checkSubmitState === 'function') checkSubmitState();
+}
+
+function collectData() {
+  var active = document.querySelector('.role-content.active');
+  var activeTab = document.querySelector('.role-tab.active');
+  var role = activeTab ? activeTab.textContent.trim() : '';
+  var now = new Date();
+  var ts = now.getFullYear() + '/' + String(now.getMonth()+1).padStart(2,'0') + '/' +
+            String(now.getDate()).padStart(2,'0') + ' ' +
+            String(now.getHours()).padStart(2,'0') + ':' + String(now.getMinutes()).padStart(2,'0');
+  var headers = ['ロール', '送信日時'];
+  var values  = [role, ts];
+
+  // 基本情報
+  active.querySelectorAll('.basic-info > div').forEach(function(item) {
+    var lbl = item.querySelector('.info-label');
+    var val = item.querySelector('.info-line.editable');
+    if (lbl && val) { headers.push(lbl.textContent.trim()); values.push(val.textContent.trim()); }
+  });
+
+  // 設問
+  active.querySelectorAll('.q').forEach(function(q) {
+    var num   = q.querySelector('.q-num');
+    var qtext = q.querySelector('.q-text');
+    var inp   = q.querySelector('.q-input');
+    if (num && qtext && inp) {
+      headers.push('[' + num.textContent.trim() + '] ' + qtext.textContent.trim());
+      values.push(inp.textContent.trim());
+    }
+  });
+
+  // メモ
+  active.querySelectorAll('.memo').forEach(function(m) {
+    var lbl = m.querySelector('.memo-label');
+    var inp = m.querySelector('.memo-input');
+    if (lbl && inp) { headers.push(lbl.textContent.trim()); values.push(inp.textContent.trim()); }
+  });
+
+  return { role: role, headers: headers, values: values };
+}
+
+function checkSubmitState() {
+  var active = document.querySelector('.role-content.active');
+  var btn = document.getElementById('submit-btn');
+  if (!active || !btn || btn.classList.contains('sending')) return;
+  var hasContent = false;
+  active.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function(el) {
+    if (el.textContent.trim()) hasContent = true;
+  });
+  btn.disabled = !hasContent;
+}
+
+function submitData() {
+  if (!GAS_URL) {
+    var url = prompt('Google Apps Script のデプロイURLを貼り付けてください：');
+    if (!url || !url.trim()) return;
+    GAS_URL = url.trim();
+    try { localStorage.setItem('gasUrl', GAS_URL); } catch(e) {}
+  }
+
+  var data = collectData();
+  var btn = document.getElementById('submit-btn');
+  btn.textContent = '送信中...';
+  btn.disabled = true;
+  btn.classList.add('sending');
+  btn.classList.remove('done');
+
+  fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data) })
+    .then(function(r) { return r.json(); })
+    .then(function(res) {
+      btn.classList.remove('sending');
+      if (res.status === 'ok') {
+        btn.textContent = '✓ 保存完了';
+        btn.classList.add('done');
+        btn.disabled = true;
+        setTimeout(function() {
+          btn.textContent = '回答を送信';
+          btn.classList.remove('done');
+          checkSubmitState();
+        }, 4000);
+      } else {
+        alert('エラー：' + (res.message || '不明なエラー'));
+        btn.textContent = '回答を送信';
+        checkSubmitState();
+      }
+    })
+    .catch(function() {
+      btn.classList.remove('sending');
+      alert('送信できませんでした。\nネットワーク接続またはGASのURLを確認してください。');
+      btn.textContent = '回答を送信';
+      checkSubmitState();
+    });
 }
 
 function setMode(mode) {
@@ -1673,10 +1818,14 @@ function setMode(mode) {
     var saved; try { saved = localStorage.getItem('walakasMode'); } catch(e) {}
     setMode(saved || (window.innerWidth < 768 ? 'sp' : 'pc'));
 
+    try { GAS_URL = localStorage.getItem('gasUrl') || ''; } catch(e) {}
+
     document.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function (el) {
-      el.addEventListener('input',  function () { fitText(el); });
+      el.addEventListener('input',  function () { fitText(el); checkSubmitState(); });
       el.addEventListener('paste',  onPaste);
     });
+
+    checkSubmitState();
   });
 })();
 </script>
