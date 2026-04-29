@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///Users/kuwanokota/Downloads/index.html -->
+<html lang="ja"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WALAKAS | 現場ヒアリングシート設計</title>
+<link href="./WALAKAS _ 現場ヒアリングシート設計_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0D1B2A;
+    --red: #E63946;
+    --gold: #C9A84C;
+    --white: #F5F0E8;
+    --gray: #8B8B8B;
+    --light: #EEE8DC;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  /* ===== SLIDE WRAPPER ===== */
+  .deck {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 80px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .slide.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    z-index: 100;
+  }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(245,240,232,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .dot.active { background: var(--gold); transform: scale(1.4); }
+
+  .nav-btn {
+    background: none;
+    border: 1px solid rgba(245,240,232,0.3);
+    color: var(--white);
+    padding: 8px 24px;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .nav-btn:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); color: var(--gold); }
+
+  /* ===== SLIDE 1 ===== */
+  #slide1 {
+    background: var(--navy);
+  }
+  #slide1::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .s1-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+  .s1-title {
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+  .s1-title span { color: var(--gold); }
+
+  .s1-sub {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--gray);
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.5s forwards;
+  }
+
+  .s1-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.7s forwards;
+  }
+  .s1-card {
+    border: 1px solid rgba(201,168,76,0.25);
+    padding: 24px;
+    position: relative;
+    background: rgba(255,255,255,0.02);
+  }
+  .s1-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--gold);
+  }
+  .s1-card-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    color: rgba(201,168,76,0.25);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .s1-card-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 8px;
+    letter-spacing: 0.05em;
+  }
+  .s1-card-text {
+    font-size: 12px;
+    font-weight: 300;
+    color: rgba(245,240,232,0.65);
+    line-height: 1.7;
+  }
+
+  .s1-issue {
+    margin-top: 36px;
+    padding: 20px 28px;
+    background: rgba(230,57,70,0.08);
+    border-left: 3px solid var(--red);
+    opacity: 0;
+    animation: fadeUp 0.6s 0.9s forwards;
+  }
+  .s1-issue-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--red);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .s1-issue-text {
+    font-size: 13px;
+    font-weight: 400;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.8;
+  }
+
+  /* ===== SLIDE 2 ===== */
+  #slide2 {
+    background: var(--navy);
+  }
+
+  .s2-header {
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+  .s2-header.paused { animation: none; }
+
+  .s2-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .s2-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 900;
+    line-height: 1.25;
+  }
+  .s2-title span { color: var(--gold); }
+
+  .s2-table-wrap {
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .s2-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .s2-table thead tr {
+    background: rgba(201,168,76,0.12);
+  }
+  .s2-table th {
+    padding: 12px 16px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-align: left;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+  }
+  .s2-table td {
+    padding: 13px 16px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgba(245,240,232,0.85);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .s2-table tr:hover td {
+    background: rgba(201,168,76,0.04);
+  }
+  .tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-right: 4px;
+  }
+  .tag-em { background: rgba(230,57,70,0.15); color: var(--red); }
+  .tag-op { background: rgba(201,168,76,0.15); color: var(--gold); }
+  .tag-cu { background: rgba(100,180,255,0.12); color: #64B4FF; }
+
+  .s2-note {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.7s forwards;
+  }
+  .s2-note-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    flex: 1;
+    padding: 14px 18px;
+    border: 1px solid rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.02);
+  }
+  .s2-note-icon {
+    font-size: 18px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+  .s2-note-body {}
+  .s2-note-label {
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+  .s2-note-text {
+    font-size: 11px;
+    color: rgba(245,240,232,0.6);
+    line-height: 1.6;
+  }
+
+  /* ===== FOOTER ===== */
+  .slide-footer {
+    position: absolute;
+    bottom: 28px;
+    right: 80px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(245,240,232,0.2);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ======== SLIDE 1 ======== -->
+  <div class="slide active" id="slide1">
+
+    <div class="s1-eyebrow">WALAKAS HR PROJECT — PHASE 1</div>
+
+    <div class="s1-title">現場ヒアリングシート<span>、</span><br>何を聞くべきか。</div>
+    <div class="s1-sub">人材要件定義のための現場ヒアリング設計 — 背景と目的</div>
+
+    <div class="s1-grid">
+      <div class="s1-card">
+        <div class="s1-card-num">01</div>
+        <div class="s1-card-label">現状の課題</div>
+        <div class="s1-card-text">評価制度はあるが運用されていない。何を軸に評価するかが定まっておらず、現場も疑問を持っていない。</div>
+      </div>
+      <div class="s1-card">
+        <div class="s1-card-num">02</div>
+        <div class="s1-card-label">ヒアリングの目的</div>
+        <div class="s1-card-text">人材要件を「現場から逆ドリルダウン」して定義する。優秀人材の行動・判断・マインドを言語化する。</div>
+      </div>
+      <div class="s1-card">
+        <div class="s1-card-num">03</div>
+        <div class="s1-card-label">対象者</div>
+        <div class="s1-card-text">エリアマネージャー・SV、店長、副店長の3階層。上位者が「何を見ているか」の視点を押さえる。</div>
+      </div>
+    </div>
+
+    <div class="s1-issue">
+      <div class="s1-issue-label">CORE QUESTION</div>
+      <div class="s1-issue-text">
+        「頑張った人が正当に評価される仕組み」を作るために、今の現場では何が起きているのか？
+        ヒアリングはその"生の事実"を集める場である。
+      </div>
+    </div>
+
+    <div class="slide-footer">WALAKAS / CONFIDENTIAL</div>
+  </div>
+
+  <!-- ======== SLIDE 2 ======== -->
+  <div class="slide" id="slide2">
+
+    <div class="s2-header">
+      <div class="s2-eyebrow">WALAKAS HR PROJECT — HEARING DESIGN</div>
+      <div class="s2-title">ヒアリングシートの<span>設計方針</span>と主要設問</div>
+    </div>
+
+    <div class="s2-table-wrap">
+      <table class="s2-table">
+        <thead>
+          <tr>
+            <th style="width:12%">カテゴリ</th>
+            <th style="width:10%">対象</th>
+            <th style="width:42%">主要設問（例）</th>
+            <th style="width:36%">得たい情報</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tag-em">人材要件</span></td>
+            <td>EM / SV</td>
+            <td>「活躍している店長とそうでない店長、何が違いますか？」</td>
+            <td>優秀人材の行動・判断特性を言語化する</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-em">昇格基準</span></td>
+            <td>EM / SV</td>
+            <td>「この人を店長に上げて良かった、と思った決め手は？」</td>
+            <td>暗黙知の昇格基準を可視化する</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-op">評価制度</span></td>
+            <td>全階層</td>
+            <td>「今の評価制度、正直に機能していると思いますか？」</td>
+            <td>制度と運用のギャップを把握する</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-op">育成</span></td>
+            <td>店長</td>
+            <td>「スタッフを育てる上で一番難しいと感じることは？」</td>
+            <td>教育・OJTの実態と課題を把握する</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-cu">離職</span></td>
+            <td>EM / 店長</td>
+            <td>「辞めた人の中で"惜しかった"と感じる人は？なぜ辞めた？」</td>
+            <td>定着阻害要因の仮説を立てる</td>
+          </tr>
+          <tr>
+            <td><span class="tag tag-cu">期待</span></td>
+            <td>全階層</td>
+            <td>「人事部に期待することを自由に教えてください」</td>
+            <td>現場の人事への信頼度・ニーズを把握する</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="s2-note">
+      <div class="s2-note-item">
+        <div class="s2-note-icon">⚠️</div>
+        <div class="s2-note-body">
+          <div class="s2-note-label">冒頭で必ず伝えること</div>
+          <div class="s2-note-text">「評価のためではなく、頑張った人が正当に評価される仕組みを作るために聞いています」と明示する。心理的安全性の確保が回答品質を左右する。</div>
+        </div>
+      </div>
+      <div class="s2-note-item">
+        <div class="s2-note-icon">📋</div>
+        <div class="s2-note-body">
+          <div class="s2-note-label">運用設計</div>
+          <div class="s2-note-text">EM/SV：45〜60分、店長：30〜45分、副店長：20〜30分を想定。入社後30日は「聞くことに徹する」フェーズとして位置づける。</div>
+        </div>
+      </div>
+      <div class="s2-note-item">
+        <div class="s2-note-icon">🎯</div>
+        <div class="s2-note-body">
+          <div class="s2-note-label">アウトプット</div>
+          <div class="s2-note-text">ヒアリング結果を集約し、人材要件定義→評価項目の再定義→グレード・給与テーブル策定へ繋げる。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">WALAKAS / CONFIDENTIAL</div>
+  </div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← PREV</button>
+  <div class="dot active" onclick="goTo(0)"></div>
+  <div class="dot" onclick="goTo(1)"></div>
+  <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">NEXT →</button>
+</div>
+
+<script>
+  let current = 0;
+  const slides = document.querySelectorAll('.slide');
+  const dots = document.querySelectorAll('.dot');
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function changeSlide(dir) {
+    const next = (current + dir + slides.length) % slides.length;
+    goTo(next);
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   changeSlide(-1);
+  });
+</script>
+
+
+</body></html>
