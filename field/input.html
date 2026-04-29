@@ -582,9 +582,20 @@ body.is-mobile .gtags          { padding: 6px 10px; }
   padding: 14px 20px 18px;
   background: linear-gradient(transparent, rgba(240,240,240,0.97) 35%);
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   z-index: 200;
   pointer-events: none;
+}
+#submit-warn {
+  font-size: 11px;
+  font-weight: 700;
+  color: #c0480c;
+  letter-spacing: 0.03em;
+  margin-bottom: 7px;
+  text-align: center;
+  max-width: 680px;
+  line-height: 1.7;
 }
 .submit-btn {
   pointer-events: auto;
@@ -1690,6 +1701,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 </div><!-- /page-wrap -->
 
 <div class="submit-bar" id="submit-bar">
+  <div id="submit-warn" style="display:none"></div>
   <button class="submit-btn" id="submit-btn" disabled onclick="submitData()">回答を送信</button>
 </div>
 
@@ -1759,12 +1771,41 @@ function collectData() {
 function checkSubmitState() {
   var active = document.querySelector('.role-content.active');
   var btn = document.getElementById('submit-btn');
+  var warn = document.getElementById('submit-warn');
   if (!active || !btn || btn.classList.contains('sending')) return;
-  var hasContent = false;
-  active.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function(el) {
-    if (el.textContent.trim()) hasContent = true;
+
+  // 基本情報フィールド
+  var infoMissing = [];
+  active.querySelectorAll('.basic-info > div').forEach(function(item) {
+    var lbl = item.querySelector('.info-label');
+    var val = item.querySelector('.info-line.editable');
+    if (lbl && val && !val.textContent.trim()) infoMissing.push(lbl.textContent.trim());
   });
-  btn.disabled = !hasContent;
+
+  // 設問（q-inputのみ、回答率計算の母数）
+  var qTotal = 0, qMissing = [];
+  active.querySelectorAll('.q').forEach(function(q) {
+    var num = q.querySelector('.q-num');
+    var inp = q.querySelector('.q-input');
+    if (!num || !inp) return;
+    qTotal++;
+    if (!inp.textContent.trim()) qMissing.push(num.textContent.trim());
+  });
+
+  var allMissing = infoMissing.concat(qMissing);
+  var complete = allMissing.length === 0;
+  var qRate = qTotal > 0 ? (qTotal - qMissing.length) / qTotal : 0;
+
+  btn.disabled = !complete;
+
+  if (warn) {
+    if (!complete && qRate >= 0.9) {
+      warn.textContent = '未入力：' + allMissing.join('　/　');
+      warn.style.display = '';
+    } else {
+      warn.style.display = 'none';
+    }
+  }
 }
 
 function submitData() {

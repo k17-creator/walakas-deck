@@ -287,8 +287,8 @@ body {
 }
 
 /* ── GUIDE TAB ── */
-.guide-tab { border-left: 1px solid var(--mid); margin-left: 8px; color: var(--orange) !important; }
-.guide-tab.active { border-bottom-color: var(--orange) !important; }
+.guide-tab { border-left: 1px solid var(--mid); margin-left: 8px; }
+.guide-tab.active { color: var(--orange) !important; border-bottom-color: var(--orange) !important; }
 
 .guide-intro {
   background: var(--light);
@@ -1490,6 +1490,7 @@ function showRole(id) {
   document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
   event.currentTarget.classList.add('active');
   document.getElementById('role-' + id).classList.add('active');
+  document.querySelector('.opening-box').style.display = id === 'guide' ? 'none' : '';
 }
 </script>
 </body>
