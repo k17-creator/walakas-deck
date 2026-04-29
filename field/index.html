@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WALAKAS｜現場ヒアリングシート</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0D1B2A;
+  --orange: #E8622A;
+  --gray: #8C8C8C;
+  --white: #FFFFFF;
+  --light: #F5F5F5;
+  --mid: #E0E0E0;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  background: #F0F0F0;
+  color: var(--navy);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── HEADER ── */
+.page-header {
+  background: var(--navy);
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.hdr-left { display: flex; align-items: center; gap: 18px; }
+.hdr-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.15em;
+  color: var(--orange);
+}
+.hdr-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.05em;
+}
+.hdr-right {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+}
+
+/* ── ROLE TABS ── */
+.role-tabs {
+  display: flex;
+  background: var(--white);
+  border-bottom: 2px solid var(--mid);
+  padding: 0 40px;
+  position: sticky;
+  top: 54px;
+  z-index: 99;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.role-tab {
+  padding: 13px 26px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray);
+  cursor: pointer;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  background: none;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+.role-tab:hover { color: var(--navy); }
+.role-tab.active { color: var(--navy); border-bottom-color: var(--orange); }
+
+/* ── LAYOUT ── */
+.page-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+
+/* ── OPENING ── */
+.opening-box {
+  padding: 14px 18px;
+  background: rgba(232,98,42,0.07);
+  border-left: 4px solid var(--orange);
+  margin-bottom: 20px;
+}
+.opening-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--orange);
+  margin-bottom: 5px;
+}
+.opening-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.9;
+}
+
+/* ── BASIC INFO ── */
+.basic-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--mid);
+  padding: 14px 18px;
+  margin-bottom: 28px;
+}
+.info-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gray);
+  margin-bottom: 5px;
+}
+.info-line { border-bottom: 1.5px solid var(--navy); height: 22px; }
+
+/* ── ROLE CONTENT ── */
+.role-content { display: none; }
+.role-content.active { display: block; }
+
+/* ── SECTION ── */
+.section { margin-bottom: 32px; }
+.sec-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-left: 4px solid;
+  margin-bottom: 18px;
+}
+.sec-header.ice  { border-color: var(--gray);   background: rgba(140,140,140,0.05); }
+.sec-header.hear { border-color: var(--navy);   background: rgba(13,27,42,0.04); }
+.sec-header.char { border-color: var(--orange); background: rgba(232,98,42,0.06); }
+
+.sec-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+}
+.ice  .sec-name { color: var(--gray); }
+.hear .sec-name { color: var(--navy); }
+.char .sec-name { color: var(--orange); }
+
+.sec-time {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  padding: 3px 9px;
+  border-radius: 2px;
+}
+.ice  .sec-time { background: rgba(140,140,140,0.1); color: var(--gray); }
+.hear .sec-time { background: rgba(13,27,42,0.08);  color: var(--navy); }
+.char .sec-time { background: rgba(232,98,42,0.1);  color: var(--orange); }
+
+.sec-sub {
+  font-size: 11px;
+  color: var(--gray);
+  font-weight: 500;
+  flex: 1;
+}
+
+/* ── CATEGORY ── */
+.cat { margin-bottom: 20px; }
+.cat-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--gray);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--mid);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* ── QUESTION ── */
+.q {
+  display: flex;
+  gap: 10px;
+  background: var(--white);
+  border: 1px solid var(--mid);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+.q.grade { border-style: dashed; background: rgba(248,248,248,0.8); }
+.q-num {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: var(--orange);
+  min-width: 28px;
+  line-height: 1.4;
+}
+.q.grade .q-num { color: var(--gray); font-size: 14px; }
+.q-body { flex: 1; }
+.grade-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 1px 7px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+}
+.badge-new   { background: rgba(232,98,42,0.1);  color: var(--orange); }
+.badge-vet   { background: rgba(13,27,42,0.08);  color: var(--navy); }
+.badge-promo { background: rgba(232,98,42,0.15); color: #c0480c; }
+.badge-sr    { background: rgba(13,27,42,0.1);   color: var(--navy); }
+.badge-lead  { background: rgba(13,27,42,0.08);  color: var(--navy); }
+.q-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.75;
+}
+.q.grade .q-text { font-size: 12px; color: #444; }
+.q-lines {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.q-line { border-bottom: 1px dashed var(--mid); height: 20px; }
+
+/* ── MEMO ── */
+.memo {
+  background: var(--white);
+  border: 1px solid var(--mid);
+  padding: 12px 14px;
+  margin-top: 16px;
+}
+.memo-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+.memo-lines { display: flex; flex-direction: column; gap: 8px; }
+.memo-line { border-bottom: 1px dashed var(--mid); height: 22px; }
+
+/* ── CHECKLIST ── */
+.checklist {
+  background: var(--white);
+  border: 1px solid var(--mid);
+  padding: 14px 16px;
+  margin-top: 20px;
+}
+.checklist-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--navy);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.check-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--navy);
+}
+.check-box {
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid var(--navy);
+  flex-shrink: 0;
+}
+
+/* ── GUIDE TAB ── */
+.guide-tab { border-left: 1px solid var(--mid); margin-left: 8px; }
+.guide-tab.active { color: var(--orange) !important; border-bottom-color: var(--orange) !important; }
+
+.guide-intro {
+  background: var(--light);
+  border: 1px solid var(--mid);
+  padding: 13px 16px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+.guide-section { margin-bottom: 32px; }
+
+.guide-sec-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  color: var(--navy);
+  padding: 10px 14px;
+  border-left: 4px solid var(--navy);
+  background: rgba(13,27,42,0.04);
+  margin-bottom: 6px;
+}
+.guide-sec-hdr.g-ice  { border-color: var(--gray);   color: var(--gray); }
+.guide-sec-hdr.g-char { border-color: var(--orange);  color: var(--orange); }
+.guide-sec-hdr .g-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 9px;
+  border-radius: 2px;
+  background: rgba(13,27,42,0.08);
+  color: var(--navy);
+  font-family: 'Noto Sans JP', sans-serif;
+}
+.guide-sec-sub {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray);
+  margin-bottom: 12px;
+  padding-left: 2px;
+}
+
+.guide-q {
+  background: var(--white);
+  border: 1px solid var(--mid);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+.guide-q.grade-q { border-style: dashed; }
+.guide-q-hdr {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  background: rgba(13,27,42,0.025);
+  border-bottom: 1px solid var(--mid);
+}
+.gqnum {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  color: var(--orange);
+  min-width: 32px;
+}
+.grade-q .gqnum { color: var(--gray); }
+.gqtext {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.5;
+}
+.grade-q .gqtext { color: #555; }
+
+.guide-body {
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.guide-row {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 12px;
+  line-height: 1.65;
+}
+.glabel {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  padding-top: 2px;
+  min-width: 68px;
+}
+.gl-obs  { color: var(--gray); }
+.gl-good { color: var(--navy); }
+.gl-warn { color: var(--orange); }
+.gtext { color: #333; font-weight: 500; }
+
+.gtags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 7px 14px;
+  border-top: 1px solid var(--mid);
+  background: rgba(245,245,245,0.7);
+}
+.gtag {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 8px;
+  border-radius: 100px;
+  background: rgba(13,27,42,0.07);
+  color: var(--navy);
+}
+.gtag.risk { background: rgba(232,98,42,0.1); color: #c0480c; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: white; }
+  .page-header { position: static; }
+  .role-tabs { display: none; }
+  .role-content { display: none !important; }
+  .role-content.active { display: block !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="hdr-left">
+    <div class="hdr-brand">WALAKAS</div>
+    <div class="hdr-title">現場ヒアリングシート</div>
+  </div>
+  <div class="hdr-right">CONFIDENTIAL — 人事部内限</div>
+</div>
+
+<div class="role-tabs">
+  <button class="role-tab active" onclick="showRole('staff')">スタッフ / リーダー</button>
+  <button class="role-tab" onclick="showRole('sub')">副店長</button>
+  <button class="role-tab" onclick="showRole('manager')">店長</button>
+  <button class="role-tab" onclick="showRole('em')">EM / SV</button>
+  <button class="role-tab guide-tab" onclick="showRole('guide')">回答分析ガイド</button>
+</div>
+
+<div class="page-wrap">
+
+  <div class="opening-box">
+    <div class="opening-label">冒頭 — 必ず伝える</div>
+    <div class="opening-text">「このヒアリングは評価のためではありません。頑張った人が正当に評価されて、給料の上がり方が明確になる仕組みを作るために、現場の声を聞かせてください。話してくれた内容は個人が特定される形では使いません。」</div>
+  </div>
+
+  <!-- ════════════ EM / SV ════════════ -->
+  <div class="role-content" id="role-em">
+
+    <div class="basic-info">
+      <div><div class="info-label">氏名</div><div class="info-line"></div></div>
+      <div><div class="info-label">担当エリア・店舗数</div><div class="info-line"></div></div>
+      <div><div class="info-label">在籍年数</div><div class="info-line"></div></div>
+      <div><div class="info-label">実施日</div><div class="info-line"></div></div>
+    </div>
+
+    <!-- ICEBREAK -->
+    <div class="section">
+      <div class="sec-header ice">
+        <div class="sec-name">ICEBREAK</div>
+        <div class="sec-time">5-10 MIN</div>
+        <div class="sec-sub">緊張をほぐす。評価ではないことを体感させる。</div>
+      </div>
+      <div class="q">
+        <div class="q-num">I1</div>
+        <div class="q-body">
+          <div class="q-text">今日はお時間いただきありがとうございます。最近、担当エリアで印象に残った出来事はありましたか？</div>
+          <div class="q-lines"><div class="q-line"></div></div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">I2</div>
+        <div class="q-body">
+          <div class="q-text">このヒアリング、事前にご連絡していましたが、何か気になっていることはありましたか？</div>
+          <div class="q-lines"><div class="q-line"></div></div>
+        </div>
+      </div>
+      <div class="q">
+        <div class="q-num">I3</div>
+        <div class="q-body">
+          <div class="q-text">今のエリアを担当されてどのくらいですか？今、エリア全体の雰囲気はどんな感じですか？</div>
+          <div class="q-lines"><div class="q-line"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEARING -->
+    <div class="section">
+      <div class="sec-header hear">
+        <div class="sec-name">HEARING</div>
+        <div class="sec-time">30-40 MIN</div>
+        <div class="sec-sub">人材要件・評価・育成・組織の実態を引き出す。</div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">01 — 人材・組織を見る目（約10分）</div>
+        <div class="q">
+          <div class="q-num">Q1</div>
+          <div class="q-body">
+            <div class="q-text">担当エリアの中で、特に活躍していると感じる店長はどんなタイプですか？何が違うと思いますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q2</div>
+          <div class="q-body">
+            <div class="q-text">逆に、課題を感じている店長はどういうタイプですか？具体的にどんな場面で困りますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q3</div>
+          <div class="q-body">
+            <div class="q-text">「この人を店長に上げて良かった」と思った事例を教えてください。どんな行動・判断が決め手でしたか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q4</div>
+          <div class="q-body">
+            <div class="q-text">「店長に上げるのが早すぎた」と感じた経験はありますか？何が足りなかったと思いますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q grade">
+          <div class="q-num">Q4a</div>
+          <div class="q-body">
+            <div class="grade-badge badge-sr">シニアEM向け</div>
+            <div class="q-text">複数エリアを見てきた経験から、エリアや店舗タイプによって「求められる店長像」に違いはありますか？</div>
+            <div class="q-lines"><div class="q-line"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">02 — 評価・昇格（約10分）</div>
+        <div class="q">
+          <div class="q-num">Q5</div>
+          <div class="q-body">
+            <div class="q-text">今の評価制度について、正直にどう思いますか？機能していると感じますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q6</div>
+          <div class="q-body">
+            <div class="q-text">評価する立場として「何を見て評価しているか」を教えてください。数字以外の要素も含めて。</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q7</div>
+          <div class="q-body">
+            <div class="q-text">「これができれば店長／SVに上げる」という、ご自身なりの基準はありますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q grade">
+          <div class="q-num">Q7a</div>
+          <div class="q-body">
+            <div class="grade-badge badge-sr">シニアEM向け</div>
+            <div class="q-text">グレードが上がるにつれて「見るポイント」は変わりますか？具体的にはどう変わりますか？</div>
+            <div class="q-lines"><div class="q-line"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">03 — 育成・マネジメント（約8分）</div>
+        <div class="q">
+          <div class="q-num">Q8</div>
+          <div class="q-body">
+            <div class="q-text">部下の育成で、一番難しいと感じることは何ですか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q9</div>
+          <div class="q-body">
+            <div class="q-text">ご自身が意識しているマネジメントのスタイルや「型」はありますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">04 — 組織・環境（約8分）</div>
+        <div class="q">
+          <div class="q-num">Q10</div>
+          <div class="q-body">
+            <div class="q-text">今の組織で「ここを変えてほしい」と思うことは何ですか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q11</div>
+          <div class="q-body">
+            <div class="q-text">離職した人の中で「惜しかった」と感じる人はいますか？なぜ辞めたと思いますか？</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+        <div class="q">
+          <div class="q-num">Q12</div>
+          <div class="q-body">
+            <div class="q-text">人事部に期待することを自由に教えてください。</div>
+            <div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="memo">
+        <div class="memo-label">ヒアリングメモ（気になった発言・補足・仮説）</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+    <!-- CHARACTER -->
+    <div class="section">
+      <div class="sec-header char">
+        <div class="sec-name">CHARACTER CHECK</div>
+        <div class="sec-time">20 MIN</div>
+        <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
+      </div>
+      <div class="cat">
+        <div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat">
+        <div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？（まとめ役・実行役・アイデア出し など）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat">
+        <div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat">
+        <div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？仕事でもプライベートでも。</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="checklist">
+        <div class="checklist-title">観察チェックリスト（会話しながら記録）</div>
+        <div class="check-grid">
+          <div class="check-row"><div class="check-box"></div>自分の意見を明確に言えるか</div>
+          <div class="check-row"><div class="check-box"></div>ネガティブ話の語り方（他責 / 自責 / フラット）</div>
+          <div class="check-row"><div class="check-box"></div>質問への反応スピード・考える姿勢</div>
+          <div class="check-row"><div class="check-box"></div>ユーモア・余裕の有無</div>
+          <div class="check-row"><div class="check-box"></div>将来への意欲と具体性</div>
+          <div class="check-row"><div class="check-box"></div>非言語サイン（表情・姿勢・目線）</div>
+          <div class="check-row"><div class="check-box"></div>話の論理性・構造性</div>
+          <div class="check-row"><div class="check-box"></div>感情の振れ幅（喜怒哀楽の表れ方）</div>
+        </div>
+      </div>
+      <div class="memo">
+        <div class="memo-label">全体印象・所感メモ</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /role-em -->
+
+
+  <!-- ════════════ 店長 ════════════ -->
+  <div class="role-content" id="role-manager">
+
+    <div class="basic-info">
+      <div><div class="info-label">氏名</div><div class="info-line"></div></div>
+      <div><div class="info-label">店舗名</div><div class="info-line"></div></div>
+      <div><div class="info-label">在籍年数 / 店長歴</div><div class="info-line"></div></div>
+      <div><div class="info-label">実施日</div><div class="info-line"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header ice">
+        <div class="sec-name">ICEBREAK</div>
+        <div class="sec-time">5-10 MIN</div>
+        <div class="sec-sub">安心感を作る。日常の話から入る。</div>
+      </div>
+      <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、お店で印象に残ったことはありましたか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今日のヒアリングについて、事前に気になっていたことはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">今の店舗はどんな雰囲気ですか？チームはいかがですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header hear">
+        <div class="sec-name">HEARING</div>
+        <div class="sec-time">30-40 MIN</div>
+        <div class="sec-sub">店長としての実態・本音を引き出す。</div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">01 — 日々の仕事（約8分）</div>
+        <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">日々の仕事で、一番時間を使っていることは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">「これは自分の仕事だ」と思っていることと、「本当は誰かにやってほしい」と思っていることを教えてください。</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">今の仕事で一番難しいと感じることは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-new">新任（1年未満）</div><div class="q-text">店長になって変わったと感じることは？前の役職と比べて一番の違いは何ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q3b</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">ここ1〜2年で、自分のマネジメントスタイルに変化はありましたか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">02 — スタッフ・チーム（約10分）</div>
+        <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今のチームで「頑張ってくれているな」と感じるスタッフはどんな人ですか？何が違いますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">副店長やリーダーに「ここをもっと伸ばしてほしい」と感じることはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">スタッフを育てる上で、一番心がけていることは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q6a</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">後輩の店長に「これだけは伝えたい」ということがあれば教えてください。</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">03 — 評価・給与・キャリア（約10分）</div>
+        <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">今の評価制度について、率直にどう感じていますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">「頑張っても評価されない」と感じたことはありますか？どんな場面でしたか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">給与や昇格についての基準は、自分で理解できていますか？わかりにくい点はありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q9a</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">次のキャリアステップとして何を考えていますか？SV・本部への興味はありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">04 — 会社・環境（約8分）</div>
+        <div class="q"><div class="q-num">Q10</div><div class="q-body"><div class="q-text">この会社で働いていて「良いな」と思うことは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q11</div><div class="q-body"><div class="q-text">改善してほしいことや、会社に伝えたいことがあれば教えてください。</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q12</div><div class="q-body"><div class="q-text">人事部ができることで、一番期待することは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="memo">
+        <div class="memo-label">ヒアリングメモ（気になった発言・補足・仮説）</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+    <!-- CHARACTER -->
+    <div class="section">
+      <div class="sec-header char">
+        <div class="sec-name">CHARACTER CHECK</div>
+        <div class="sec-time">20 MIN</div>
+        <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？（まとめ役・実行役・アイデア出し など）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？仕事でもプライベートでも。</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="checklist">
+        <div class="checklist-title">観察チェックリスト</div>
+        <div class="check-grid">
+          <div class="check-row"><div class="check-box"></div>自分の意見を明確に言えるか</div>
+          <div class="check-row"><div class="check-box"></div>ネガティブ話の語り方（他責 / 自責 / フラット）</div>
+          <div class="check-row"><div class="check-box"></div>質問への反応スピード・考える姿勢</div>
+          <div class="check-row"><div class="check-box"></div>ユーモア・余裕の有無</div>
+          <div class="check-row"><div class="check-box"></div>将来への意欲と具体性</div>
+          <div class="check-row"><div class="check-box"></div>非言語サイン（表情・姿勢・目線）</div>
+          <div class="check-row"><div class="check-box"></div>話の論理性・構造性</div>
+          <div class="check-row"><div class="check-box"></div>感情の振れ幅（喜怒哀楽の表れ方）</div>
+        </div>
+      </div>
+      <div class="memo">
+        <div class="memo-label">全体印象・所感メモ</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /role-manager -->
+
+
+  <!-- ════════════ 副店長 ════════════ -->
+  <div class="role-content" id="role-sub">
+
+    <div class="basic-info">
+      <div><div class="info-label">氏名</div><div class="info-line"></div></div>
+      <div><div class="info-label">店舗名 / 役職</div><div class="info-line"></div></div>
+      <div><div class="info-label">在籍年数 / 副店長歴</div><div class="info-line"></div></div>
+      <div><div class="info-label">実施日</div><div class="info-line"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header ice">
+        <div class="sec-name">ICEBREAK</div>
+        <div class="sec-time">5-10 MIN</div>
+        <div class="sec-sub">緊張をほぐす。まず話しやすい雰囲気を作る。</div>
+      </div>
+      <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、仕事で印象に残ったことはありましたか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今の店舗の雰囲気はどうですか？チームは最近どんな感じですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">副店長になってどのくらいですか？最近どんなことが多い日々ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header hear">
+        <div class="sec-name">HEARING</div>
+        <div class="sec-time">30-40 MIN</div>
+        <div class="sec-sub">役割認識・キャリア意識・評価への本音を引き出す。</div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">01 — 今の役割（約8分）</div>
+        <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">今の仕事でやりがいを感じる場面はどんな時ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">副店長として「これは自分が担っている」と感じる役割は何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">今の仕事で「ここがしんどい」と感じることはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-promo">昇格候補</div><div class="q-text">店長を意識して、最近意識的に変えていることはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">02 — 店長・チームとの関係（約10分）</div>
+        <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今の店長のマネジメントで「学んでいる」と感じることはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">店長に「もっと任せてほしい」「自分でやってみたい」と思うことはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">スタッフに対して「一番大切にしていること」は何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">03 — 評価・キャリア（約10分）</div>
+        <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">店長を目指したいと思いますか？目指す上で不安なことはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">今の評価のされ方について、どう感じていますか？納得感はありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">「こういう行動をすれば評価が上がる」という基準が明確になったら、働き方は変わりますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q9a</div><div class="q-body"><div class="grade-badge badge-promo">昇格候補</div><div class="q-text">店長になるために「今の自分に足りない」と感じることは何ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">04 — 会社・環境（約8分）</div>
+        <div class="q"><div class="q-num">Q10</div><div class="q-body"><div class="q-text">この会社で働いていて「良いな」と感じることは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q11</div><div class="q-body"><div class="q-text">会社や上司に伝えたいことがあれば、自由に教えてください。</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="memo">
+        <div class="memo-label">ヒアリングメモ（気になった発言・補足・仮説）</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header char">
+        <div class="sec-name">CHARACTER CHECK</div>
+        <div class="sec-time">20 MIN</div>
+        <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="checklist">
+        <div class="checklist-title">観察チェックリスト</div>
+        <div class="check-grid">
+          <div class="check-row"><div class="check-box"></div>自分の意見を明確に言えるか</div>
+          <div class="check-row"><div class="check-box"></div>ネガティブ話の語り方（他責 / 自責 / フラット）</div>
+          <div class="check-row"><div class="check-box"></div>質問への反応スピード・考える姿勢</div>
+          <div class="check-row"><div class="check-box"></div>ユーモア・余裕の有無</div>
+          <div class="check-row"><div class="check-box"></div>将来への意欲と具体性</div>
+          <div class="check-row"><div class="check-box"></div>非言語サイン（表情・姿勢・目線）</div>
+          <div class="check-row"><div class="check-box"></div>話の論理性・構造性</div>
+          <div class="check-row"><div class="check-box"></div>感情の振れ幅（喜怒哀楽の表れ方）</div>
+        </div>
+      </div>
+      <div class="memo">
+        <div class="memo-label">全体印象・所感メモ</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /role-sub -->
+
+
+  <!-- ════════════ スタッフ / リーダー ════════════ -->
+  <div class="role-content active" id="role-staff">
+
+    <div class="basic-info">
+      <div><div class="info-label">氏名</div><div class="info-line"></div></div>
+      <div><div class="info-label">店舗名 / 役職</div><div class="info-line"></div></div>
+      <div><div class="info-label">在籍年数</div><div class="info-line"></div></div>
+      <div><div class="info-label">実施日</div><div class="info-line"></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header ice">
+        <div class="sec-name">ICEBREAK</div>
+        <div class="sec-time">5-10 MIN</div>
+        <div class="sec-sub">緊張をほぐす。まず楽しい話から入る。</div>
+      </div>
+      <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、仕事で楽しかったことや嬉しかったことはありましたか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今日のヒアリングについて、事前に気になっていたことはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">今の店舗の雰囲気はどうですか？最近どんな感じですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header hear">
+        <div class="sec-name">HEARING</div>
+        <div class="sec-time">30-40 MIN</div>
+        <div class="sec-sub">現場のリアルな声・キャリア意識・定着要因を引き出す。</div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">01 — 仕事のやりがいと課題（約10分）</div>
+        <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">今の仕事でやりがいを感じる場面はどんな時ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">逆に「ここがしんどいな」と感じることはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">仕事をする上で「これがあればもっと働きやすい」と思うものはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-lead">リーダー</div><div class="q-text">リーダーとして、チームをまとめる上で一番難しいと感じることは何ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">02 — チーム・環境（約8分）</div>
+        <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今のチームの雰囲気はどうですか？良いところと、もっとこうなればと思うところを教えてください。</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">上司や店長について、「こうしてほしい」と思うことはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="cat">
+        <div class="cat-title">03 — キャリア・評価（約12分）</div>
+        <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">今の評価のされ方について、どう感じていますか？納得感はありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">副店長や店長を目指したいと思いますか？正直なところを教えてください。</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">「こういう行動をすれば評価が上がる」という基準が明確になったら、働き方は変わりますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q grade"><div class="q-num">Q8a</div><div class="q-body"><div class="grade-badge badge-lead">リーダー</div><div class="q-text">今後どんなキャリアパスを描いていますか？この会社でどうなっていきたいですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">この会社で働き続けたいと思えている理由は何ですか？逆に、不安に感じることはありますか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+      </div>
+
+      <div class="memo">
+        <div class="memo-label">ヒアリングメモ（気になった発言・補足・仮説）</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="sec-header char">
+        <div class="sec-name">CHARACTER CHECK</div>
+        <div class="sec-time">20 MIN</div>
+        <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-lines"><div class="q-line"></div><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">5〜10年後、どんな自分でありたいですか？</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+        <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-lines"><div class="q-line"></div></div></div></div>
+      </div>
+      <div class="checklist">
+        <div class="checklist-title">観察チェックリスト</div>
+        <div class="check-grid">
+          <div class="check-row"><div class="check-box"></div>自分の意見を明確に言えるか</div>
+          <div class="check-row"><div class="check-box"></div>ネガティブ話の語り方（他責 / 自責 / フラット）</div>
+          <div class="check-row"><div class="check-box"></div>質問への反応スピード・考える姿勢</div>
+          <div class="check-row"><div class="check-box"></div>ユーモア・余裕の有無</div>
+          <div class="check-row"><div class="check-box"></div>将来への意欲と具体性</div>
+          <div class="check-row"><div class="check-box"></div>非言語サイン（表情・姿勢・目線）</div>
+          <div class="check-row"><div class="check-box"></div>話の論理性・構造性</div>
+          <div class="check-row"><div class="check-box"></div>感情の振れ幅（喜怒哀楽の表れ方）</div>
+        </div>
+      </div>
+      <div class="memo">
+        <div class="memo-label">全体印象・所感メモ</div>
+        <div class="memo-lines"><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div><div class="memo-line"></div></div>
+      </div>
+    </div>
+
+  </div><!-- /role-staff -->
+
+
+  <!-- ════════════ 回答分析ガイド ════════════ -->
+  <div class="role-content" id="role-guide">
+
+    <div class="guide-intro">
+      各設問の回答パターンから読み取れる人材特性・人材資源論的解釈のガイドです。PLAUD録音後の議事録整理・人材分析の補助として活用してください。<br>
+      <strong style="color:var(--navy)">良いサイン →</strong> は強みや適性の示唆。<strong style="color:var(--orange)">要注意サイン →</strong> は懸念・リスクシグナル。単独では断定せず、複数設問の組み合わせで総合判断してください。
+    </div>
+
+    <!-- ══ ICEBREAK ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr g-ice">ICEBREAK <span class="g-badge">全ロール共通</span></div>
+      <div class="guide-sec-sub">アイスブレイク段階での観察ポイント。この時点から人物像の仮説を立て始める。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">I1</span><span class="gqtext">最近、仕事で印象に残った出来事</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">話の具体性・感情の乗り方・仕事への関与度。何に「印象」を持つかで価値観が見える。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的なエピソードを感情豊かに語れる → 仕事への関与が深く、エンゲージメント高い。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特にない」「普通です」→ 現状への無関心、または強い警戒心。どちらかを後の設問で判別する。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">エンゲージメント</span><span class="gtag">仕事への関与度</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">I2</span><span class="gqtext">ヒアリングに事前に気になっていたこと</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">心理的安全性の水準と、組織・人事への先入観・信頼度。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「少し緊張しました（笑）」など率直な自己開示 → 自己開示できる関係性構築力・素直さあり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「評価に使われませんか？」など過剰に警戒 → 組織・人事への不信感。冒頭説明を丁寧に繰り返す。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">心理的安全性</span><span class="gtag">組織信頼度</span><span class="gtag">自己開示能力</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">I3</span><span class="gqtext">今の店舗・エリアの雰囲気</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">チームへの帰属意識と観察力。良い面と課題を両方語れるかどうか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">メンバーへの具体的な言及あり、良し悪し両面を語れる → バランスよい認知力・チームへの愛着あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">愚痴のみ or 「普通」→ 低エンゲージメント or 他責傾向の予兆。後の設問で確認を。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">チーム帰属意識</span><span class="gtag">バランス認知力</span></div>
+      </div>
+    </div>
+
+    <!-- ══ HEARING EM/SV ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr">HEARING <span class="g-badge">EM / SV</span></div>
+      <div class="guide-sec-sub">人材評価力・マネジメント成熟度・育成哲学を中心に判定する。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q1</span><span class="gqtext">活躍している店長の特徴（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">人材評価力の精度。抽象論か行動ベースの具体論かで評価者としての成熟度がわかる。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇という場面で〇〇の判断をする」と行動ベースで語れる → コンピテンシー思考あり。組織の人材要件言語化に貢献できる評価者。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「感じがいい」「頑張ってる」など感覚的表現のみ → 評価基準が属人的・感覚的。属人的基準は再現性がなく組織に蓄積されない。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">コンピテンシー思考</span><span class="gtag">人材評価力</span><span class="gtag">行動観察力</span><span class="gtag">暗黙知の形式知化</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q2</span><span class="gqtext">課題を感じている店長のタイプ（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">批判のフレーミング。環境要因（構造）と個人要因をどう分けて語るか。育成視点があるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的行動で語り「〇〇の支援が足りなかった」など育成観点も含む → 成熟した評価者・育成者。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「使えない」「やる気がない」のみ → 行動変容・育成への視点がない。部下の失敗を個人帰属させる傾向（マネジメント上のリスク）。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">帰属スタイル（内的/外的）</span><span class="gtag">マネジメント成熟度</span><span class="gtag">育成責任感</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3</span><span class="gqtext">店長に上げて良かった事例（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">昇格判断の根拠を言語化できるか。「なんとなく」か「明確な基準」かで組織への知識移転可能性が決まる。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「こういう場面でこう判断した、それが決め手」と行動ベース → 暗黙知を形式知化できる人材。評価基準策定の主要インフォーマントになれる。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「なんとなく」「雰囲気で」→ 昇格基準が完全に属人的。次世代評価者への伝達が困難。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">暗黙知の形式知化</span><span class="gtag">昇格基準の明確度</span><span class="gtag">知識移転能力</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q4</span><span class="gqtext">早すぎた昇格の経験（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">失敗からの学習能力・内省力・育成への責任感。「あの人の問題」で終わらせずに語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇が足りなかった。次はこうする」と具体的に振り返れる → 高い内省・学習志向あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「あの人が悪い」「最初から無理だった」→ 育成責任感の欠如。評価者としての成長に限界がある。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">成長マインドセット</span><span class="gtag">内省力</span><span class="gtag">育成責任感</span><span class="gtag">経験学習</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q4a</span><span class="gqtext">エリア別の店長像の違い（シニアEM）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">状況適応型リーダーシップへの理解度。コンテキスト（立地・客層・規模）と人材要件の関係を語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">エリア特性と必要なリーダーシップを結びつけて語れる → 高い組織コンテキスト理解。戦略的人材配置に貢献できる。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">コンティンジェンシー理論</span><span class="gtag">状況適応型リーダーシップ</span><span class="gtag">戦略的人材配置</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q5</span><span class="gqtext">評価制度への正直な意見（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">制度への納得感・公正感と、組織へのコミットメント水準。不満を「提言」に変えられるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">課題を具体的に指摘しつつ「こうあれば改善できる」と建設的 → 組織変革意欲あり、人事との協働パートナーになれる。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「機能していない」のみで代案なし → 不満の表明どまり。シニシズム（組織的冷笑）の予兆。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">組織的公正感</span><span class="gtag">組織コミットメント</span><span class="gtag">シニシズム指標</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q6</span><span class="gqtext">評価の軸（数字以外）（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">評価の多次元性への理解。行動・態度・チーム貢献まで見ているか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">行動・姿勢・チームへの影響力など多角的に挙げられる → 高い評価リテラシー。多次元評価制度の設計に貢献できる。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">売上・数字のみ → 一次元的評価観。現状の評価制度問題の原因がここにある可能性。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">多次元評価能力</span><span class="gtag">バランススコアカード的思考</span><span class="gtag">評価リテラシー</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q7</span><span class="gqtext">自分なりの昇格基準（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">基準の言語化能力と再現性。他者に伝えられる基準か。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「3つ挙げると〇〇、〇〇、〇〇」と構造的に語れる → 再現性のある評価者。この内容が人材要件定義の核になる。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「その場の総合判断」のみ → 属人的・非言語的基準。次世代への知識移転が不可能。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">評価基準の形式知化</span><span class="gtag">組織的公正感</span><span class="gtag">知識移転可能性</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q7a</span><span class="gqtext">グレードと見るポイントの変化（シニアEM）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">キャリアステージ理論への実践的理解。グレード別に異なる能力要件を語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇グレードでは〇〇、上がると〇〇が重要になる」と段階的に語れる → 人材開発モデルの設計に直接活用できる。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">キャリア段階論</span><span class="gtag">グレード別コンピテンシー</span><span class="gtag">人材開発モデル</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q8</span><span class="gqtext">育成で一番難しいこと（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">育成哲学の深さ。「人の難しさ」をどの次元で捉えているか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「個人差への対応」「動機づけの設計」「心理的安全性の確保」など本質的な課題を語る → 高い育成力。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「忙しくて時間がない」「本人のやる気の問題」→ 育成の外部帰属・回避。OJTの機能不全が起きやすい。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">内発的動機付け</span><span class="gtag">OJT効果</span><span class="gtag">育成哲学</span><span class="gtag">帰属スタイル</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q9</span><span class="gqtext">自分のマネジメントスタイル（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">メタ認知能力（自分を客観視できるか）。状況に応じてスタイルを変えられるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">スタイルを語れる上に「状況によって変える」という話がある → 状況適応型リーダー。変革型・サーバント型の語彙が出れば高い理解度。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「厳しく指導するのみ」「これしかやり方を知らない」→ 硬直したマネジメント。スタイルの幅が狭く、多様なメンバーへの対応が難しい。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">メタ認知</span><span class="gtag">変革型リーダーシップ</span><span class="gtag">サーバントリーダーシップ</span><span class="gtag">状況適応力</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q10–Q12</span><span class="gqtext">組織・環境・人事への期待（EM/SV）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q10=問題意識の深さと建設性。Q11=離職要因への構造的洞察。Q12=人事を協働パートナーと見ているか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q10：「〇〇の仕組みが変われば〇〇が改善」→ システム思考あり。Q11：離職理由を構造的に分析 → 組織課題への洞察力高。Q12：具体的なリクエスト → 人事をパートナーと認識。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q10：個人への不満のみ → 構造的視点薄。Q11：「個人の事情」のみ → 組織側の責任に無自覚。Q12：「どうせ変わらない」→ 人事不信・変化への絶望感。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">システム思考</span><span class="gtag">組織課題認識</span><span class="gtag">人事ビジネスパートナー観</span><span class="gtag risk">離職リスクシグナル</span></div>
+      </div>
+    </div>
+
+    <!-- ══ HEARING 店長 ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr">HEARING <span class="g-badge">店長</span></div>
+      <div class="guide-sec-sub">役割移行の自覚・評価制度への公正感・育成哲学・定着要因を判定する。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q1</span><span class="gqtext">一番時間を使っていること</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">時間配分の自覚と優先度管理。「やること」ではなく「時間の使い方」で仕事観が見える。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「OJT・育成」「戦略的な動き」に時間を使っている or 「本来もっとそこに時間を使いたい」→ マネジメント志向あり、自分の役割を正確に認識。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「シフト作成」「クレーム対応」など作業タスクのみ → プレイヤーからマネージャーへの移行が遅れている。成長の天井が見えやすい。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">タイムマネジメント</span><span class="gtag">役割移行認識</span><span class="gtag">戦略的優先度</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q2</span><span class="gqtext">自分の仕事 vs 誰かにやってほしい仕事</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">役割認識の明確さと委任能力（エンパワーメント）。できない理由まで語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">委任したいことが明確で「なぜ委任できていないか」も語れる → 役割境界の自覚あり。権限委譲への準備意識がある。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「全部自分でやる」→ 完璧主義 or 部下への信頼委任ができない。スケールしないマネージャーの典型。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">役割認識</span><span class="gtag">権限委譲（エンパワーメント）</span><span class="gtag">マネジメントスケール</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3</span><span class="gqtext">一番難しいこと（店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">課題の内部帰属 vs 外部帰属。「工夫している」まで語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇が難しいが、〇〇を工夫している」→ 自責的かつ行動志向。困難を成長機会として捉える成長マインドセット。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「スタッフのやる気がない」「会社のサポートが足りない」→ 外部帰属優位。課題解決への行動が起きにくい。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">内的統制（Locus of Control）</span><span class="gtag">問題解決志向</span><span class="gtag">成長マインドセット</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3a</span><span class="gqtext">店長になって変わったこと（新任）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">プレイヤーからマネージャーへの役割移行の自覚度。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「チームの成果を考えるようになった」「自分が動かすより人を動かす難しさを感じる」→ 役割変容の自覚あり。成長の出発点に立っている。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「あまり変わらない」→ 役割変化への無自覚。プレイヤー思考のまま店長職を続けている可能性。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">役割移行（プレイヤー→マネージャー）</span><span class="gtag">トランジション理論</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3b</span><span class="gqtext">マネジメントスタイルの変化（ベテラン）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">経験からの学習・適応的成長があるか。同じやり方で固まっていないか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">失敗や気づきから進化した具体的なエピソードあり → 成長マインドセット・適応的熟達者。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「最初と変わっていない」→ 固定マインドセット or 経験が蓄積されていない。ベテランほど危険なパターン。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">成長マインドセット</span><span class="gtag">適応的熟達</span><span class="gtag">経験学習サイクル（コルブ）</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q4–Q6</span><span class="gqtext">スタッフ・チーム・育成について</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q4=人材眼の精度。Q5=育成視点（強みベースか指示待ちベースか）。Q6=育成哲学の深さ。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q4：行動ベースで具体的 → コンピテンシー思考あり。Q5：「〇〇の力を伸ばせば活躍できる」→ 強みベース育成。Q6：「自分で考えさせる」「失敗を経験させる」→ 自律型育成、高い育成者。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q4：「素直」「勤怠がいい」→ 成果への視点薄。Q5：「言われたことをやってほしい」→ 指示待ち型育成観。Q6：「とにかく丁寧に教える」のみ → 自律型育成への発展余地あり。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">コンピテンシー評価</span><span class="gtag">強みベース開発</span><span class="gtag">自律性支援</span><span class="gtag">経験学習</span><span class="gtag">コーチング指向</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q6a</span><span class="gqtext">後輩店長に伝えたいこと（ベテラン）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">知識の形式知化能力と組織学習への貢献意欲。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">自分の経験を「教訓」として構造的に語れる → 組織の暗黙知を継承できる人材。メンター適性あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「自分で学んでほしい」のみ → 個人主義的。組織の知識共有・学習文化形成への貢献低。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">暗黙知の形式知化</span><span class="gtag">組織学習志向</span><span class="gtag">メンター適性</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q7–Q9</span><span class="gqtext">評価・給与・キャリアについて（店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q7=制度への納得感・不満の質。Q8=不公正感の蓄積度と感情の出方。Q9=制度理解度とキャリア自律性。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q7：課題指摘＋代案提示 → 組織コミットメント高。Q8：「あったけど今は理解している」→ 成熟した対処。Q9：「ここが不明確」と具体的指摘 → 制度リテラシーあり・改善に協力的。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q7：「意味がない」のみ → シニシズム（組織的冷笑）の兆候。Q8：感情的に強く出る or 「ずっとそうだった」→ 潜在的不満の蓄積 → 離職リスク上昇。Q9：「全然わからない」→ 制度周知の問題 or 本人の低関与。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">分配的公正感</span><span class="gtag">手続き的公正感</span><span class="gtag">シニシズム指標</span><span class="gtag risk">離職リスクシグナル</span><span class="gtag">キャリア自律性</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q9a</span><span class="gqtext">次のキャリアステップ（ベテラン店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">キャリアアンカー（何に価値を置いているか）。SV・本部への志向か、現場への深化志向か。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「SV/本部で〇〇がしたい」など具体的な理由付き → キャリアビジョンあり。内発的動機が明確。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特にない」→ 要判断。キャリア停滞か現状満足か。後のCHARACTER C9で補完確認を。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">キャリアアンカー理論（シャイン）</span><span class="gtag">内発的動機付け</span><span class="gtag">自己決定理論</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q10–Q12</span><span class="gqtext">会社・環境・人事への期待（店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q10=定着要因の性質（内発的 vs 外発的）。Q11=不満の建設性。Q12=人事不信の有無。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q10：仲間・成長機会・理念など内発的要因 → 安定した定着。Q11：論理的提言 → 変革協力者になれる。Q12：具体的なニーズ → 人事協働意欲あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q10：「給与」「シフト融通」のみ → 外発的動機のみ → 待遇悪化で即離職リスク。Q11：感情的羅列 → フラストレーション状態。Q12：「何も変わらないと思う」→ 変化への絶望感。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">動機付け衛生理論（ハーズバーグ）</span><span class="gtag">組織コミットメント</span><span class="gtag risk">外発的動機のみ＝定着リスク</span><span class="gtag">心理的契約</span></div>
+      </div>
+    </div>
+
+    <!-- ══ HEARING 副店長 ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr">HEARING <span class="g-badge">副店長</span></div>
+      <div class="guide-sec-sub">役割認識・昇格意欲の質・評価公正感・キャリア自律性を判定する。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q1–Q3</span><span class="gqtext">やりがい・役割・しんどいこと（副店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q1=内発的動機の源泉。Q2=役割認識の能動性。Q3=ストレスの性質とコーピング能力。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q1：メンバーの成長・顧客反応など他者志向の達成感 → 高いエンゲージメント。Q2：「〇〇を担っている」と能動的役割認識。Q3：「でも〇〇で対処している」→ 問題解決型コーピング。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q1：「特にない」「早く帰れるとき」→ 離職リスク高、意欲低下。Q2：「言われたことをやるだけ」→ 受動的役割認識。Q3：「全部しんどい」→ バーンアウトリスク。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">内発的動機付け</span><span class="gtag">エンゲージメント</span><span class="gtag">役割明確性</span><span class="gtag">ストレスコーピング</span><span class="gtag risk">バーンアウトリスク</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3a</span><span class="gqtext">店長を意識した変化（昇格候補）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">先読み行動（プロアクティブ行動）の有無。昇格前から次の役割を意識して動いているか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇を意識的に変えた」「観察するようになった」→ 自己開発主導型。自己効力感が高い。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特に変えていない」→ 昇格への準備意識が低い or 誰かに言ってほしい受動型。昇格後のパフォーマンスに要注意。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">プロアクティブ行動</span><span class="gtag">自己効力感（バンデューラ）</span><span class="gtag">キャリア自律性</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q4–Q6</span><span class="gqtext">店長・チームとの関係（副店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q4=観察学習・謙虚さ。Q5=自律性欲求の強さ。Q6=リーダーとしての価値観・心理的安全性への意識。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q4：店長の行動を具体的に言語化 → 観察学習能力高・謙虚さあり。Q5：「〇〇の決定を任せてほしい」→ 成長欲求・自律性欲求あり。Q6：「話を聞く」「失敗を責めない」→ 心理的安全性を重視する姿勢。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q4：「特にない」→ 関係性の問題 or 学習志向の低さ。Q5：「特にない、何でも相談したい」→ 自律性の低さ（指示待ち）。Q6：「ルールを守らせる」のみ → コンプライアンス偏重・心理的安全性への感度低。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">観察学習（バンデューラ）</span><span class="gtag">自律性欲求（デシ&ライアン）</span><span class="gtag">心理的安全性志向</span><span class="gtag">リーダーシップスタイル</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q7–Q9</span><span class="gqtext">店長を目指すか・評価・基準（副店長）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q7=昇格動機の質（内発的か外発的か）。Q8=評価公正感。Q9=行動変容の意欲（期待理論）。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q7：「はい、〇〇したいから」内発的理由 → 強い動機づけ・就任後の定着確率高。Q8：「おおむね納得・ここだけ不明確」→ 建設的フィードバック。Q9：「絶対変わる、〇〇を頑張る」→ 行動変容意欲あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q7：「なれればいいな」「周りに言われて」→ 外発的動機のみ → 昇格後の離脱リスク高。Q8：「全然納得できない」→ 高い不公正感 → 離職リスク上昇。Q9：「どうせ変わらないと思う」→ 習得性無力感（学習性無力感）の兆候。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">内発的/外発的動機付け</span><span class="gtag">手続き的公正感</span><span class="gtag">期待理論（ブルーム）</span><span class="gtag risk">習得性無力感</span><span class="gtag risk">離職リスクシグナル</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q9a</span><span class="gqtext">今の自分に足りないもの（昇格候補）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">自己認識の正確さとメタ認知能力。謙虚さと現実把握の精度。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的なスキル・経験ギャップを語れる → メタ認知能力高・成長余地を正確に把握。昇格後も自己学習できるタイプ。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特にない」→ 過信（ダニングクルーガー効果） or 自己認識の浅さ。昇格後に壁にぶつかった際の立て直しが困難になりやすい。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">メタ認知</span><span class="gtag">ダニングクルーガー効果</span><span class="gtag">自己効力感の精度</span></div>
+      </div>
+    </div>
+
+    <!-- ══ HEARING スタッフ/リーダー ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr">HEARING <span class="g-badge">スタッフ / リーダー</span></div>
+      <div class="guide-sec-sub">エンゲージメント・定着要因・キャリア展望・組織コミットメントを判定する。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q1–Q3</span><span class="gqtext">やりがい・しんどいこと・あればいいもの</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q1=内発的動機の源泉。Q2=ストレスの性質。Q3=欲求の種類（環境整備 vs 承認 vs 成長機会）。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q1：顧客反応・チームの成功体験など → 高エンゲージメント。Q3：「成長機会」「フィードバック」→ 内発的動機が軸、定着力高。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q1：「特にない」→ 離職リスク高。Q3：「休みが増えればいい」のみ → 衛生要因のみ（ハーズバーグ）→ 環境改善だけでは定着しない。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">動機付け衛生理論（ハーズバーグ）</span><span class="gtag">エンゲージメント</span><span class="gtag risk">早期離職リスク</span></div>
+      </div>
+
+      <div class="guide-q grade-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q3a</span><span class="gqtext">チームをまとめる難しさ（リーダー）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">リーダーシップの自覚度と人間観の成熟度。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「個々の違いへの対応」「信頼関係の構築」→ 関係志向型リーダーシップ。副店長適性あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「言うことを聞かない」のみ → 権威的リーダーシップのみ。メンバーへの相互理解が薄い。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">リーダーシップ発達段階</span><span class="gtag">関係志向型リーダーシップ</span><span class="gtag">フォロワーシップ理解</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q4–Q5</span><span class="gqtext">チームの雰囲気・上司へのリクエスト</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q4=集団凝集性の認識とバランス。Q5=上方発信意欲（発言 vs 離脱の選択）。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q4：良い面と課題を両方語れる → バランスよい認知力。Q5：具体的なリクエストを語れる → 「発言」を選択できる関係性・心理的安全性あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q5：「言っても変わらないから言わない」→ 「離脱」モードに入りかけている。ハーシュマンの「発言・離脱・忠誠」モデルの離脱予備状態。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">チーム凝集性</span><span class="gtag">ハーシュマンの発言・離脱・忠誠モデル</span><span class="gtag risk">離脱予備状態</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">Q6–Q9</span><span class="gqtext">評価・キャリア・働き続けたい理由</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">Q6=公正感。Q7=成長欲求（達成動機）。Q8=行動変容意欲。Q9=組織コミットメントの種類と定着要因。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">Q7：「目指したい、なぜなら〇〇」→ 内発的成長欲求あり。Q9：「仲間が好き、成長できる」→ 情緒的コミットメント → 最も安定した定着。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">Q7：「全然思わない＋理由がネガティブ」→ 職場環境への深い不満反映。Q8：「どうせ変わらない」→ 習得性無力感。Q9：「なんとなくいる」→ 継続的コミットメントのみ → 待遇改善で即転職リスク。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">達成動機（マクレランド）</span><span class="gtag">組織コミットメント（情緒的/継続的/規範的）</span><span class="gtag risk">習得性無力感</span><span class="gtag risk">継続的コミットのみ＝転職リスク</span></div>
+      </div>
+    </div>
+
+    <!-- ══ CHARACTER CHECK ══ -->
+    <div class="guide-section">
+      <div class="guide-sec-hdr g-char">CHARACTER CHECK <span class="g-badge" style="background:rgba(232,98,42,0.1);color:var(--orange)">全ロール共通</span></div>
+      <div class="guide-sec-sub">性格属性・価値観・行動傾向を読み解く。「正解」はなく、組織との適合性・チームバランスを見る視点で使う。</div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C1–C2</span><span class="gqtext">趣味・オフの過ごし方（日常・興味）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">情熱の有無・没入できるか・充電の方法（能動的 vs 受動的）。外向性 vs 内向性の傾向も見える。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的に熱量をもって語れる → 関与深く行動力ある人格。主体的充電（運動・読書・人との交流）→ レジリエンスが高い。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特にない」→ 全般的な無気力 or 強い警戒心（どちらかをC3以降で判別）。「ゴロゴロしてる」は疲弊サインの可能性も。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">情熱・没入傾向（フロー体験）</span><span class="gtag">レジリエンス</span><span class="gtag">外向性/内向性（ビッグファイブ）</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C3</span><span class="gqtext">人生で一番頑張ったこと</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">困難への対峙経験とレジリエンス。「乗り越えた過程」を語れるかどうか。GRIT（やり抜く力）の指標。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的な困難と乗り越えたプロセスを語れる → 経験から学ぶ力あり・GRIT高い。感情的に語れる → 当時の関与が本物だった証。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「特にない」→ チャレンジ経験が薄い or 自己開示しない（どちらかを前後の流れで判別）。開示しないだけなら問題ないが、経験薄は将来の困難耐性に影響。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">レジリエンス</span><span class="gtag">GRIT（やり抜く力）</span><span class="gtag">経験学習（コルブ）</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C4</span><span class="gqtext">チームの中での自分のタイプ</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">メタ認知能力（自分を客観視できるか）と自己認識の精度。コンテキストによる変化を語れるか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇型だが、〇〇の時は〇〇になる」と文脈ごとに語れる → 高いメタ認知・柔軟な自己像あり。現場でも状況適応できる人材。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「わからない」→ 内省経験が少ない or 自己認識が浅い。職場でも自分の強み・弱みの認識に課題がある可能性。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">メタ認知</span><span class="gtag">ビッグファイブ（外向性・協調性）</span><span class="gtag">自己認識精度</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C5</span><span class="gqtext">「仕事できるな」と感じる瞬間</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">仕事観・能力の定義のリッチさ。自分が理想とするワーカー像が見える。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">行動・判断力・巻き込み力・視座の高さなど多面的に語れる → 成熟した仕事観。自分もそうあろうとする動機づけになっている可能性。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「数字を出す」のみ or 「言われたことを正確にやる」→ 能力観が狭い。こういう人が評価者になると一次元的評価につながる。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">暗黙の能力理論</span><span class="gtag">インプリシット・リーダーシップ理論</span><span class="gtag">多次元的能力観</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C6</span><span class="gqtext">ストレスの切り替え方</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">コーピングスタイルの種類。問題焦点型（課題解決）か情動焦点型（感情整理）か、またはその使い分けか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">問題解決型＋感情整理型を状況に応じて使い分ける → 高いレジリエンス。「人に話す」「書き出す」→ 自己開示・内省能力あり。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「考えないようにする」「忘れる」→ 回避型コーピング。短期的には有効だが長期的に蓄積しやすく、バーンアウトリスク上昇。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">ストレスコーピング（ラザルス）</span><span class="gtag">レジリエンス</span><span class="gtag risk">回避型＝バーンアウトリスク</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C7</span><span class="gqtext">大切にしている価値観3つ</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">価値観の明確さと仕事との整合性。即答できるかどうかで価値観形成の成熟度がわかる。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的に3つを即答でき、仕事との繋がりも語れる → 価値観が統合されている。WALAKASの文化とのフィット確認に使える。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「考えたことない」→ 価値観形成が浅い or 自己開示しない。「正直さ・誠実さ」系が全くない場合は組織文化フィットを要確認。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">価値観明確性</span><span class="gtag">キャリアアンカー（シャイン）</span><span class="gtag">Person-Organization Fit</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C8</span><span class="gqtext">力を発揮できる職場環境</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">環境要因への感度と自己の動機づけ条件の理解。今の職場との適合性チェックにも使える。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇があると最高」と具体的に語れる → 自分の動機づけ条件を理解している → セルフマネジメント能力高。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「自由にやらせてほしい」→ 構造化された環境に不満を持ちやすいタイプかを確認。「どこでも同じ」→ 環境感受性低 or 何でもいいという無関心。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">Person-Environment Fit</span><span class="gtag">職務要求-資源モデル（JD-R）</span><span class="gtag">セルフマネジメント</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C9</span><span class="gqtext">10年後のビジョン</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">将来志向性と時間軸での自己投影能力。仕事・プライベート両面で語れるかどうか。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">具体的なビジョンが両面で語れる → 目標志向性高。「変化への受容」も含まれると成熟したビジョン。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「考えていない」→ 未来志向の低さ（現状固執 or 絶望感のどちらかをHEARING設問で補完）。「同じことをしていたい」→ 変化回避傾向。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">将来志向性</span><span class="gtag">目標設定理論（ロック&レイサム）</span><span class="gtag">キャリアプランニング</span></div>
+      </div>
+
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">C10</span><span class="gqtext">トップだったら何を変えるか（笑）</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">観察</span><span class="gtext">問題意識の深さ・大局観・当事者意識。批判の建設性（「〇〇が問題」で終わるか、「なぜ・どうすれば」まで語るか）。</span></div>
+          <div class="guide-row"><span class="glabel gl-good">良いサイン</span><span class="gtext">「〇〇を変えると〇〇が改善される」と因果で語れる → システム思考あり・当事者意識（オーナーシップ）高。具体的な内容はそのまま人事への提言として活用可能。</span></div>
+          <div class="guide-row"><span class="glabel gl-warn">要注意</span><span class="gtext">「わからない」→ 大局観が薄い or 組織に対して距離を置いている。「給与を上げる」のみ → 自分の利益最優先、組織観が薄い。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">システム思考</span><span class="gtag">当事者意識（オーナーシップ）</span><span class="gtag">大局観</span><span class="gtag">建設的批判力</span></div>
+      </div>
+
+      <!-- チェックリスト解釈 -->
+      <div class="guide-q">
+        <div class="guide-q-hdr"><span class="gqnum">OBS</span><span class="gqtext">観察チェックリスト — 各項目の解釈指針</span></div>
+        <div class="guide-body">
+          <div class="guide-row"><span class="glabel gl-obs">自分の意見</span><span class="gtext">→ アサーティブネス（自己主張性）の指標。「どうとも言える」「あなたはどう思いますか」の多用は過度な同調性を示す。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">ネガティブの語り方</span><span class="gtext">→ 帰属スタイルの最重要指標。「他責（環境・他者のせい）」優位 → 成長鈍化リスク。「自責」のみも過度だとバーンアウトリスク。「フラット（事実として語る）」→ 感情調整力・成熟度高。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">反応スピード・考える姿勢</span><span class="gtext">→ 情報処理速度と思考の深さ。「間（ま）を置いて考えてから話す」→ 深く考えるタイプ。即答するが薄い → 考えていない or 準備していた。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">ユーモア・余裕</span><span class="gtext">→ EQ（感情的知性）と精神的余裕の一面。ユーモアは自己開示と場の調整力の現れ。ガチガチで笑いが全くない → 緊張・硬直のどちらか。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">将来への意欲と具体性</span><span class="gtext">→ 目標志向性と行動への転換可能性。「意欲はあるが曖昧」→ 目標設定支援が有効。「意欲なし」→ 動機付け要因の再確認が必要。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">非言語サイン</span><span class="gtext">→ 言語と非言語の一致が信頼性の指標。「明るく話しているが目が泳ぐ」→ 隠している何かがある可能性。姿勢が崩れたタイミングに注目（テーマへの不安・嫌悪を示すことが多い）。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">話の論理性・構造性</span><span class="gtext">→ 情報処理・説明能力。「結論→理由→事例」で語れるか。抽象度の高い話をできるかどうかでリーダー適性を判断。</span></div>
+          <div class="guide-row"><span class="glabel gl-obs">感情の振れ幅</span><span class="gtext">→ 感情調整能力（EQの中核）。感情が全く出ない → 抑圧 or 距離感。過度に激しい → 調整能力の課題。適度な振れ幅と回復が最も健全。</span></div>
+        </div>
+        <div class="gtags"><span class="gtag">EQ（感情的知性）</span><span class="gtag">帰属スタイル</span><span class="gtag">アサーティブネス</span><span class="gtag">非言語コミュニケーション</span></div>
+      </div>
+    </div>
+
+  </div><!-- /role-guide -->
+
+</div><!-- /page-wrap -->
+
+<script>
+function showRole(id) {
+  document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.role-content').forEach(c => c.classList.remove('active'));
+  event.currentTarget.classList.add('active');
+  document.getElementById('role-' + id).classList.add('active');
+  document.querySelector('.opening-box').style.display = id === 'guide' ? 'none' : '';
+}
+</script>
+</body>
+</html>
