@@ -1764,7 +1764,6 @@ function checkSubmitState() {
   active.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function(el) {
     if (el.textContent.trim()) hasContent = true;
   });
-  if (!hasContent && active.querySelector('.check-box.checked')) hasContent = true;
   btn.disabled = !hasContent;
 }
 
@@ -1859,7 +1858,6 @@ function setMode(mode) {
       row.addEventListener('click', function() {
         var box = row.querySelector('.check-box');
         if (box) box.classList.toggle('checked');
-        checkSubmitState();
       });
     });
 
