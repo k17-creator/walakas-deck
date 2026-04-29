@@ -462,6 +462,99 @@ body {
   .role-content { display: none !important; }
   .role-content.active { display: block !important; }
 }
+
+/* ── VIEW MODE TOGGLE ── */
+.hdr-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.hdr-confidential {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.05em;
+}
+.mode-toggle {
+  display: flex;
+  background: rgba(255,255,255,0.12);
+  border-radius: 4px;
+  padding: 2px;
+  gap: 2px;
+}
+.mode-btn {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border: none;
+  background: transparent;
+  color: rgba(255,255,255,0.45);
+  cursor: pointer;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.mode-btn.active {
+  background: var(--orange);
+  color: var(--white);
+}
+
+/* ── MOBILE MODE ── */
+body.is-mobile .page-header { padding: 10px 14px; }
+body.is-mobile .hdr-brand   { font-size: 16px; }
+body.is-mobile .hdr-title   { font-size: 11px; }
+body.is-mobile .hdr-left    { gap: 10px; }
+body.is-mobile .hdr-confidential { display: none; }
+
+body.is-mobile .role-tabs {
+  padding: 0 4px;
+  top: 38px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+body.is-mobile .role-tabs::-webkit-scrollbar { display: none; }
+body.is-mobile .role-tab {
+  padding: 10px 13px;
+  font-size: 11px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+body.is-mobile .page-wrap {
+  max-width: 100%;
+  padding: 14px 10px 70px;
+}
+body.is-mobile .basic-info {
+  grid-template-columns: repeat(2, 1fr);
+}
+body.is-mobile .info-line { height: 28px; }
+body.is-mobile .opening-text { font-size: 12px; }
+
+body.is-mobile .sec-header { padding: 9px 12px; gap: 8px; }
+body.is-mobile .sec-name   { font-size: 18px; }
+body.is-mobile .sec-sub    { display: none; }
+
+body.is-mobile .q        { padding: 10px 10px; }
+body.is-mobile .q-text   { font-size: 14px; }
+body.is-mobile .q.grade .q-text { font-size: 13px; }
+
+body.is-mobile .q-input,
+body.is-mobile .memo-input { font-size: 15px; }
+
+body.is-mobile .memo { padding: 10px 10px; }
+
+body.is-mobile .check-grid { grid-template-columns: 1fr; gap: 10px; }
+body.is-mobile .check-row  { font-size: 13px; }
+
+body.is-mobile .guide-sec-hdr { font-size: 15px; }
+body.is-mobile .guide-q-hdr   { padding: 8px 10px; }
+body.is-mobile .gqtext         { font-size: 12px; }
+body.is-mobile .guide-body     { padding: 8px 10px; }
+body.is-mobile .guide-row      { flex-wrap: wrap; gap: 4px; }
+body.is-mobile .glabel         { min-width: 50px; }
+body.is-mobile .gtext          { font-size: 12px; }
+body.is-mobile .gtags          { padding: 6px 10px; }
 </style>
 </head>
 <body>
@@ -471,7 +564,13 @@ body {
     <div class="hdr-brand">WALAKAS</div>
     <div class="hdr-title">現場ヒアリングシート</div>
   </div>
-  <div class="hdr-right">CONFIDENTIAL — 人事部内限</div>
+  <div class="hdr-controls">
+    <div class="hdr-confidential">CONFIDENTIAL — 人事部内限</div>
+    <div class="mode-toggle">
+      <button class="mode-btn" id="btn-pc" onclick="setMode('pc')">PC</button>
+      <button class="mode-btn" id="btn-sp" onclick="setMode('sp')">スマホ</button>
+    </div>
+  </div>
 </div>
 
 <div class="role-tabs">
@@ -1535,6 +1634,17 @@ function showRole(id) {
   document.getElementById('role-' + id).classList.add('active');
   document.querySelector('.opening-box').style.display = id === 'guide' ? 'none' : '';
 }
+
+function setMode(mode) {
+  var isSp = (mode === 'sp');
+  document.body.classList.toggle('is-mobile', isSp);
+  document.getElementById('btn-pc').classList.toggle('active', !isSp);
+  document.getElementById('btn-sp').classList.toggle('active', isSp);
+  try { localStorage.setItem('walakasMode', mode); } catch(e) {}
+  if (typeof fitText === 'function') {
+    document.querySelectorAll('.q-input, .memo-input').forEach(function(el) { fitText(el); });
+  }
+}
 </script>
 
 <script>
@@ -1542,6 +1652,7 @@ function showRole(id) {
   // フォントサイズ自動調整（固定高さに収まるよう縮小）
   function fitText(el) {
     var base = parseFloat(el.dataset.baseSize || 13);
+    if (document.body.classList.contains('is-mobile')) base = Math.max(base, 15);
     var min  = 7;
     el.style.fontSize = base + 'px';
     var size = base;
@@ -1559,6 +1670,9 @@ function showRole(id) {
   }
 
   document.addEventListener('DOMContentLoaded', function () {
+    var saved; try { saved = localStorage.getItem('walakasMode'); } catch(e) {}
+    setMode(saved || (window.innerWidth < 768 ? 'sp' : 'pc'));
+
     document.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function (el) {
       el.addEventListener('input',  function () { fitText(el); });
       el.addEventListener('paste',  onPaste);
