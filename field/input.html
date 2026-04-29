@@ -278,12 +278,31 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: var(--navy);
+  cursor: pointer;
+  user-select: none;
 }
+.check-row:hover .check-box { border-color: var(--orange); }
 .check-box {
   width: 15px;
   height: 15px;
   border: 1.5px solid var(--navy);
   flex-shrink: 0;
+  position: relative;
+  transition: background 0.15s, border-color 0.15s;
+}
+.check-box.checked {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.check-box.checked::after {
+  content: '';
+  position: absolute;
+  left: 4px; top: 1px;
+  width: 4px; height: 8px;
+  border: 2px solid var(--white);
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
 }
 
 /* ── GUIDE TAB ── */
@@ -1724,6 +1743,16 @@ function collectData() {
     if (lbl && inp) { headers.push(lbl.textContent.trim()); values.push(inp.textContent.trim()); }
   });
 
+  // 観察チェックリスト
+  var checked = [];
+  active.querySelectorAll('.check-row').forEach(function(row) {
+    if (row.querySelector('.check-box.checked')) {
+      checked.push(row.textContent.trim());
+    }
+  });
+  headers.push('観察チェック（ON）');
+  values.push(checked.join(' / '));
+
   return { role: role, headers: headers, values: values };
 }
 
@@ -1735,6 +1764,7 @@ function checkSubmitState() {
   active.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function(el) {
     if (el.textContent.trim()) hasContent = true;
   });
+  if (!hasContent && active.querySelector('.check-box.checked')) hasContent = true;
   btn.disabled = !hasContent;
 }
 
@@ -1823,6 +1853,14 @@ function setMode(mode) {
     document.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function (el) {
       el.addEventListener('input',  function () { fitText(el); checkSubmitState(); });
       el.addEventListener('paste',  onPaste);
+    });
+
+    document.querySelectorAll('.check-row').forEach(function(row) {
+      row.addEventListener('click', function() {
+        var box = row.querySelector('.check-box');
+        if (box) box.classList.toggle('checked');
+        checkSubmitState();
+      });
     });
 
     checkSubmitState();
