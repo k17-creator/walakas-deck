@@ -8,19 +8,19 @@
 <style>
   :root {
     --navy: #0D1B2A;
-    --red: #E63946;
-    --gold: #C9A84C;
-    --white: #F5F0E8;
-    --gray: #8B8B8B;
-    --light: #EEE8DC;
+    --orange: #E8622A;
+    --gray: #8C8C8C;
+    --white: #FFFFFF;
+    --light: #F5F5F5;
+    --mid: #E0E0E0;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'Noto Sans JP', sans-serif;
-    background: var(--navy);
-    color: var(--white);
+    background: var(--white);
+    color: var(--navy);
     overflow: hidden;
     height: 100vh;
   }
@@ -62,16 +62,16 @@
   .dot {
     width: 8px; height: 8px;
     border-radius: 50%;
-    background: rgba(245,240,232,0.3);
+    background: rgba(13,27,42,0.2);
     cursor: pointer;
     transition: all 0.3s;
   }
-  .dot.active { background: var(--gold); transform: scale(1.4); }
+  .dot.active { background: var(--navy); transform: scale(1.4); }
 
   .nav-btn {
     background: none;
-    border: 1px solid rgba(245,240,232,0.3);
-    color: var(--white);
+    border: 1px solid rgba(13,27,42,0.25);
+    color: var(--navy);
     padding: 8px 24px;
     font-family: 'Noto Sans JP', sans-serif;
     font-size: 12px;
@@ -79,26 +79,18 @@
     cursor: pointer;
     transition: all 0.3s;
   }
-  .nav-btn:hover { background: rgba(201,168,76,0.2); border-color: var(--gold); color: var(--gold); }
+  .nav-btn:hover { background: rgba(232,98,42,0.08); border-color: var(--orange); color: var(--orange); }
 
   /* ===== SLIDE 1 ===== */
   #slide1 {
-    background: var(--navy);
-  }
-  #slide1::before {
-    content: '';
-    position: absolute;
-    top: -100px; right: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
-    pointer-events: none;
+    background: var(--white);
   }
 
   .s1-eyebrow {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 13px;
     letter-spacing: 0.35em;
-    color: var(--gold);
+    color: var(--orange);
     margin-bottom: 20px;
     opacity: 0;
     animation: fadeUp 0.6s 0.2s forwards;
@@ -107,15 +99,16 @@
     font-size: clamp(36px, 5vw, 58px);
     font-weight: 900;
     line-height: 1.2;
+    color: var(--navy);
     margin-bottom: 12px;
     opacity: 0;
     animation: fadeUp 0.6s 0.4s forwards;
   }
-  .s1-title span { color: var(--gold); }
+  .s1-title span { color: var(--orange); }
 
   .s1-sub {
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
     color: var(--gray);
     margin-bottom: 48px;
     opacity: 0;
@@ -130,64 +123,64 @@
     animation: fadeUp 0.7s 0.7s forwards;
   }
   .s1-card {
-    border: 1px solid rgba(201,168,76,0.25);
+    border: 1px solid var(--mid);
     padding: 24px;
     position: relative;
-    background: rgba(255,255,255,0.02);
+    background: var(--light);
   }
   .s1-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0;
     width: 3px; height: 100%;
-    background: var(--gold);
+    background: var(--navy);
   }
   .s1-card-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 38px;
-    color: rgba(201,168,76,0.25);
+    color: rgba(13,27,42,0.12);
     line-height: 1;
     margin-bottom: 8px;
   }
   .s1-card-label {
     font-size: 13px;
     font-weight: 700;
-    color: var(--gold);
+    color: var(--navy);
     margin-bottom: 8px;
     letter-spacing: 0.05em;
   }
   .s1-card-text {
     font-size: 12px;
-    font-weight: 300;
-    color: rgba(245,240,232,0.65);
+    font-weight: 400;
+    color: var(--gray);
     line-height: 1.7;
   }
 
   .s1-issue {
     margin-top: 36px;
     padding: 20px 28px;
-    background: rgba(230,57,70,0.08);
-    border-left: 3px solid var(--red);
+    background: rgba(232,98,42,0.06);
+    border-left: 3px solid var(--orange);
     opacity: 0;
     animation: fadeUp 0.6s 0.9s forwards;
   }
   .s1-issue-label {
     font-size: 10px;
     letter-spacing: 0.2em;
-    color: var(--red);
+    color: var(--orange);
     font-weight: 700;
     margin-bottom: 6px;
   }
   .s1-issue-text {
     font-size: 13px;
-    font-weight: 400;
-    color: rgba(245,240,232,0.8);
+    font-weight: 500;
+    color: var(--navy);
     line-height: 1.8;
   }
 
   /* ===== SLIDE 2 ===== */
   #slide2 {
-    background: var(--navy);
+    background: var(--white);
   }
 
   .s2-header {
@@ -201,15 +194,16 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 13px;
     letter-spacing: 0.35em;
-    color: var(--gold);
+    color: var(--orange);
     margin-bottom: 12px;
   }
   .s2-title {
     font-size: clamp(28px, 3.5vw, 42px);
     font-weight: 900;
     line-height: 1.25;
+    color: var(--navy);
   }
-  .s2-title span { color: var(--gold); }
+  .s2-title span { color: var(--orange); }
 
   .s2-table-wrap {
     opacity: 0;
@@ -221,28 +215,28 @@
     border-collapse: collapse;
   }
   .s2-table thead tr {
-    background: rgba(201,168,76,0.12);
+    background: rgba(13,27,42,0.05);
   }
   .s2-table th {
     padding: 12px 16px;
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 0.1em;
-    color: var(--gold);
+    color: var(--navy);
     text-align: left;
-    border-bottom: 1px solid rgba(201,168,76,0.3);
+    border-bottom: 2px solid var(--navy);
   }
   .s2-table td {
     padding: 13px 16px;
     font-size: 12px;
-    font-weight: 400;
-    color: rgba(245,240,232,0.85);
-    border-bottom: 1px solid rgba(255,255,255,0.06);
+    font-weight: 500;
+    color: var(--navy);
+    border-bottom: 1px solid var(--mid);
     vertical-align: top;
     line-height: 1.6;
   }
   .s2-table tr:hover td {
-    background: rgba(201,168,76,0.04);
+    background: rgba(232,98,42,0.04);
   }
   .tag {
     display: inline-block;
@@ -253,9 +247,9 @@
     letter-spacing: 0.05em;
     margin-right: 4px;
   }
-  .tag-em { background: rgba(230,57,70,0.15); color: var(--red); }
-  .tag-op { background: rgba(201,168,76,0.15); color: var(--gold); }
-  .tag-cu { background: rgba(100,180,255,0.12); color: #64B4FF; }
+  .tag-em { background: var(--navy); color: #FFFFFF; }
+  .tag-op { background: var(--orange); color: #FFFFFF; }
+  .tag-cu { background: var(--gray); color: #FFFFFF; }
 
   .s2-note {
     margin-top: 20px;
@@ -270,25 +264,176 @@
     gap: 10px;
     flex: 1;
     padding: 14px 18px;
-    border: 1px solid rgba(255,255,255,0.07);
-    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--mid);
+    background: var(--light);
   }
   .s2-note-icon {
     font-size: 18px;
     line-height: 1;
     margin-top: 2px;
   }
-  .s2-note-body {}
   .s2-note-label {
     font-size: 10px;
-    color: var(--gold);
+    color: var(--navy);
     font-weight: 700;
     letter-spacing: 0.1em;
     margin-bottom: 4px;
   }
   .s2-note-text {
     font-size: 11px;
-    color: rgba(245,240,232,0.6);
+    font-weight: 500;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ===== SLIDE 3 ===== */
+  #slide3 {
+    background: var(--white);
+  }
+
+  .s3-header {
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.2s forwards;
+  }
+  .s3-eyebrow {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .s3-title {
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 900;
+    line-height: 1.25;
+    color: var(--navy);
+  }
+  .s3-title span { color: var(--orange); }
+
+  .s3-track {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+    flex: 1;
+  }
+
+  .s3-phase {
+    position: relative;
+    padding: 32px 36px;
+    border-top: 3px solid;
+  }
+  .s3-phase:not(:last-child)::after {
+    content: '→';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: var(--mid);
+    z-index: 1;
+  }
+
+  .s3-phase-listen  { border-color: var(--navy);   background: rgba(13,27,42,0.03); }
+  .s3-phase-organize{ border-color: var(--orange);  background: rgba(232,98,42,0.04); }
+  .s3-phase-define  { border-color: var(--gray);    background: rgba(140,140,140,0.05); }
+
+  .s3-phase-tag {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+  .tag-listen  { background: rgba(13,27,42,0.08);   color: var(--navy); }
+  .tag-organize{ background: rgba(232,98,42,0.12);  color: var(--orange); }
+  .tag-define  { background: rgba(140,140,140,0.12);color: var(--gray); }
+
+  .s3-phase-days {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    margin-bottom: 6px;
+    color: rgba(13,27,42,0.1);
+  }
+
+  .s3-phase-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .s3-phase-listen  .s3-phase-name { color: var(--navy); }
+  .s3-phase-organize.s3-phase-name, .s3-phase-organize .s3-phase-name { color: var(--orange); }
+  .s3-phase-define  .s3-phase-name { color: var(--gray); }
+
+  .s3-phase-mission {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .s3-phase-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .s3-phase-items li {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--gray);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+  }
+  .s3-phase-items li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--mid);
+  }
+
+  .s3-bottom {
+    margin-top: 28px;
+    display: flex;
+    gap: 16px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.7s forwards;
+  }
+  .s3-output {
+    flex: 1;
+    padding: 16px 22px;
+    border: 1px solid var(--mid);
+    background: var(--light);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .s3-output-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: rgba(13,27,42,0.18);
+    line-height: 1;
+    min-width: 28px;
+  }
+  .s3-output-label {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--orange);
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .s3-output-text {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray);
     line-height: 1.6;
   }
 
@@ -300,7 +445,7 @@
     font-family: 'Bebas Neue', sans-serif;
     font-size: 11px;
     letter-spacing: 0.2em;
-    color: rgba(245,240,232,0.2);
+    color: rgba(13,27,42,0.2);
   }
 
   /* ===== ANIMATIONS ===== */
@@ -437,6 +582,87 @@
     <div class="slide-footer">WALAKAS / CONFIDENTIAL</div>
   </div>
 
+  <!-- ======== SLIDE 3 ======== -->
+  <div class="slide" id="slide3">
+
+    <div class="s3-header">
+      <div class="s3-eyebrow">WALAKAS HR PROJECT — ONBOARDING ROADMAP</div>
+      <div class="s3-title">入社後<span>90日</span>ヒアリングロードマップ</div>
+    </div>
+
+    <div class="s3-track">
+
+      <!-- PHASE 1: LISTEN -->
+      <div class="s3-phase s3-phase-listen">
+        <div class="s3-phase-tag tag-listen">PHASE 1</div>
+        <div class="s3-phase-days">DAY 1–30</div>
+        <div class="s3-phase-name">LISTEN</div>
+        <div class="s3-phase-mission">まず聞く。判断しない。</div>
+        <ul class="s3-phase-items">
+          <li>全対象者（EM・SV・店長・副店長）への初回ヒアリング実施</li>
+          <li>現場の"空気感"・人間関係・暗黙ルールを観察</li>
+          <li>評価制度・育成・離職に関する生の声を収集</li>
+          <li>仮説を立てるが、意見・提案は口にしない</li>
+        </ul>
+      </div>
+
+      <!-- PHASE 2: ORGANIZE -->
+      <div class="s3-phase s3-phase-organize">
+        <div class="s3-phase-tag tag-organize">PHASE 2</div>
+        <div class="s3-phase-days">DAY 31–60</div>
+        <div class="s3-phase-name">ORGANIZE</div>
+        <div class="s3-phase-mission">情報を整理し、構造化する。</div>
+        <ul class="s3-phase-items">
+          <li>ヒアリング情報をカテゴリ別に集約・クラスタリング</li>
+          <li>優秀人材の行動特性・昇格基準の暗黙知を言語化</li>
+          <li>課題の優先度マッピング（緊急×重要）</li>
+          <li>ステークホルダーへの中間共有・認識合わせ</li>
+        </ul>
+      </div>
+
+      <!-- PHASE 3: DEFINE -->
+      <div class="s3-phase s3-phase-define">
+        <div class="s3-phase-tag tag-define">PHASE 3</div>
+        <div class="s3-phase-days">DAY 61–90</div>
+        <div class="s3-phase-name">DEFINE</div>
+        <div class="s3-phase-mission">人材要件を定義し、提言する。</div>
+        <ul class="s3-phase-items">
+          <li>人材要件定義書（ドラフト）の作成</li>
+          <li>評価項目の再定義案を経営層へ提示</li>
+          <li>グレード・給与テーブル策定に向けた論点整理</li>
+          <li>90日間の知見レポートとネクストアクション提言</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="s3-bottom">
+      <div class="s3-output">
+        <div class="s3-output-icon">01</div>
+        <div>
+          <div class="s3-output-label">DAY 30 OUTPUT</div>
+          <div class="s3-output-text">ヒアリング記録まとめ・仮説リスト</div>
+        </div>
+      </div>
+      <div class="s3-output">
+        <div class="s3-output-icon">02</div>
+        <div>
+          <div class="s3-output-label">DAY 60 OUTPUT</div>
+          <div class="s3-output-text">課題マップ・優秀人材行動特性シート</div>
+        </div>
+      </div>
+      <div class="s3-output">
+        <div class="s3-output-icon">03</div>
+        <div>
+          <div class="s3-output-label">DAY 90 OUTPUT</div>
+          <div class="s3-output-text">人材要件定義書ドラフト・経営層提言レポート</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">WALAKAS / CONFIDENTIAL</div>
+  </div>
+
 </div>
 
 <!-- NAV -->
@@ -444,6 +670,7 @@
   <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">← PREV</button>
   <div class="dot active" onclick="goTo(0)"></div>
   <div class="dot" onclick="goTo(1)"></div>
+  <div class="dot" onclick="goTo(2)"></div>
   <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">NEXT →</button>
 </div>
 
