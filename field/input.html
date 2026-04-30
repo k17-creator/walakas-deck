@@ -1707,7 +1707,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 </div>
 
 <script>
-var GAS_URL = '';
+var GAS_URL = 'https://script.google.com/macros/s/AKfycbwcikA3EVGyeWYtfyfkWScV2yXtlk5iCTUbM-Uqku41EKNlVrRpKx77819p1hyptOFFFQ/exec';
 
 function showRole(id) {
   document.querySelectorAll('.role-tab').forEach(t => t.classList.remove('active'));
@@ -1810,13 +1810,6 @@ function checkSubmitState() {
 }
 
 function submitData() {
-  if (!GAS_URL) {
-    var url = prompt('Google Apps Script のデプロイURLを貼り付けてください：');
-    if (!url || !url.trim()) return;
-    GAS_URL = url.trim();
-    try { localStorage.setItem('gasUrl', GAS_URL); } catch(e) {}
-  }
-
   var data = collectData();
   var btn = document.getElementById('submit-btn');
   btn.textContent = '送信中...';
