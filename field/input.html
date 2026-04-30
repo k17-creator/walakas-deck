@@ -463,6 +463,15 @@ body {
   overflow: hidden;
 }
 .q-input { height: 56px !important; }
+.q-intent {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--gray);
+  line-height: 1.6;
+  margin: 3px 0 5px;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
 .memo-input { border-bottom: none; }
 
 .q-input:empty::before,
@@ -684,6 +693,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="q-num">I1</div>
         <div class="q-body">
           <div class="q-text">今日はお時間いただきありがとうございます。最近、担当エリアで印象に残った出来事はありましたか？</div>
+          <div class="q-intent">場を温める最初の一手。話題への食いつき方・テンション・語り口でコミュニケーションスタイルの輪郭が見えてくる。</div>
           <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div>
         </div>
       </div>
@@ -691,6 +701,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="q-num">I2</div>
         <div class="q-body">
           <div class="q-text">このヒアリング、事前にご連絡していましたが、何か気になっていることはありましたか？</div>
+          <div class="q-intent">「評価じゃない」と伝えた後、本当に緊張が解けているかの確認。警戒感が残っていたら冒頭の説明をもう一度丁寧に。</div>
           <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div>
         </div>
       </div>
@@ -698,6 +709,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="q-num">I3</div>
         <div class="q-body">
           <div class="q-text">今のエリアを担当されてどのくらいですか？今、エリア全体の雰囲気はどんな感じですか？</div>
+          <div class="q-intent">現状の感情温度と関係性の全体像を把握する。「雰囲気」という曖昧な言葉でどれだけ具体的に語れるかを観察。</div>
           <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div>
         </div>
       </div>
@@ -717,6 +729,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q1</div>
           <div class="q-body">
             <div class="q-text">担当エリアの中で、特に活躍していると感じる店長はどんなタイプですか？何が違うと思いますか？</div>
+            <div class="q-intent">人材評価の視点と言語化能力を測る。「活躍」の定義が数字だけか多面的かでSVの人材観の深さがわかる。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -724,6 +737,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q2</div>
           <div class="q-body">
             <div class="q-text">逆に、課題を感じている店長はどういうタイプですか？具体的にどんな場面で困りますか？</div>
+            <div class="q-intent">課題認識の深さと他者への帰属傾向を探る。批判的に語るか構造的に語るかで思考スタイルが出る。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -731,6 +745,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q3</div>
           <div class="q-body">
             <div class="q-text">「この人を店長に上げて良かった」と思った事例を教えてください。どんな行動・判断が決め手でしたか？</div>
+            <div class="q-intent">実際の昇格判断の基準を具体的エピソードから引き出す。「何を見て上げたか」を明確にするのが目的。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -738,6 +753,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q4</div>
           <div class="q-body">
             <div class="q-text">「店長に上げるのが早すぎた」と感じた経験はありますか？何が足りなかったと思いますか？</div>
+            <div class="q-intent">昇格判断の失敗体験から何が足りなかったかを引き出す。自己批判できるかも重要な観察ポイント。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -746,6 +762,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-body">
             <div class="grade-badge badge-sr">シニアEM向け</div>
             <div class="q-text">複数エリアを見てきた経験から、エリアや店舗タイプによって「求められる店長像」に違いはありますか？</div>
+            <div class="q-intent">エリア・店舗タイプによる人材要件の差異を把握。店長像を細分化して見られているかを確認する。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div>
           </div>
         </div>
@@ -757,6 +774,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q5</div>
           <div class="q-body">
             <div class="q-text">今の評価制度について、正直にどう思いますか？機能していると感じますか？</div>
+            <div class="q-intent">評価制度への本音を引き出す。「機能している」と言いながら不満を持っているケースが多い。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -764,6 +782,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q6</div>
           <div class="q-body">
             <div class="q-text">評価する立場として「何を見て評価しているか」を教えてください。数字以外の要素も含めて。</div>
+            <div class="q-intent">実際の評価行動を言語化させる。制度と実態のギャップがここで見えてくる。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -771,6 +790,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q7</div>
           <div class="q-body">
             <div class="q-text">「これができれば店長／SVに上げる」という、ご自身なりの基準はありますか？</div>
+            <div class="q-intent">個人の昇格基準と公式基準のズレを確認。判断軸が曖昧なら等級基準の整備が急務。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -779,6 +799,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-body">
             <div class="grade-badge badge-sr">シニアEM向け</div>
             <div class="q-text">グレードが上がるにつれて「見るポイント」は変わりますか？具体的にはどう変わりますか？</div>
+            <div class="q-intent">グレードによる期待値の変化をSV自身が言語化できるかを確認。育成設計と等級制度整備に直結する。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div>
           </div>
         </div>
@@ -790,6 +811,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q8</div>
           <div class="q-body">
             <div class="q-text">部下の育成で、一番難しいと感じることは何ですか？</div>
+            <div class="q-intent">育成の難しさをどこに感じているか。人材育成観と組織の構造的課題の両方が見えてくる。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -797,6 +819,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q9</div>
           <div class="q-body">
             <div class="q-text">ご自身が意識しているマネジメントのスタイルや「型」はありますか？</div>
+            <div class="q-intent">マネジメントスタイルの自己認識を引き出す。自分なりの「型」を持っているか場当たり的かが見える。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -808,6 +831,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q10</div>
           <div class="q-body">
             <div class="q-text">今の組織で「ここを変えてほしい」と思うことは何ですか？</div>
+            <div class="q-intent">変革意欲と組織への当事者意識を確認。対象が「現場オペ」か「制度・文化」かで視座の高さがわかる。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -815,6 +839,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q11</div>
           <div class="q-body">
             <div class="q-text">離職した人の中で「惜しかった」と感じる人はいますか？なぜ辞めたと思いますか？</div>
+            <div class="q-intent">離職分析の精度と人材定着上の課題を探る。「惜しい」と感じる基準がそのまま育成・評価の指標になる。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -822,6 +847,7 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
           <div class="q-num">Q12</div>
           <div class="q-body">
             <div class="q-text">人事部に期待することを自由に教えてください。</div>
+            <div class="q-intent">人事への期待から現場の具体的ニーズと、現状の人事機能への評価を把握する。</div>
             <div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div>
           </div>
         </div>
@@ -842,24 +868,34 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
       </div>
       <div class="cat">
         <div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q-intent">オフでの没入体験の有無を確認。趣味の種類より「どれだけ集中できるか」が観察点。エネルギー量と好奇心の向きもわかる。</div>
         <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">休日の過ごし方からリカバリーパターンを把握。一人充電型か人と過ごす型かで職場での人間関係スタイルが推測できる。</div>
         <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat">
         <div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q-intent">困難への向き合い方・努力の閾値・達成感の源泉を引き出す。「頑張った」の基準が高いか低いかも重要な観察点。</div>
         <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">チーム内でのロールスタイルの自己認識を確認。本人の認識と実際の行動パターンのズレに注目する。</div>
         <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？（まとめ役・実行役・アイデア出し など）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">仕事観・能力の定義を引き出す。「できる人」の定義が多面的かどうかで、評価者としての資質も見える。</div>
         <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat">
         <div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q-intent">ストレスコーピングのパターンを把握。健全な発散方法を持っているかがバーンアウトリスクの指標になる。</div>
         <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">価値観の言語化能力と成熟度を確認。即答できるかで自己認識の深さがわかる。仕事との整合性も合わせて確認。</div>
         <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">動機づけ条件の自己認識を確認。どんな環境でパフォーマンスを発揮するかを理解しているかがセルフマネジメントの指標。</div>
         <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat">
         <div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q-intent">将来志向の強さと具体性を確認。仕事・プライベート両面で語れるかで目標志向性の成熟度がわかる。</div>
         <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？仕事でもプライベートでも。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">組織全体への視座と当事者意識を測る。「何を・なぜ変えるか」の因果関係で問題意識の深さと大局観が見える。</div>
         <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="checklist">
@@ -900,8 +936,11 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-time">5-10 MIN</div>
         <div class="sec-sub">安心感を作る。日常の話から入る。</div>
       </div>
+      <div class="q-intent">場を温める最初の一手。話題への食いつき方・テンション・語り口でコミュニケーションスタイルの輪郭が見えてくる。</div>
       <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、お店で印象に残ったことはありましたか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">「評価じゃない」と伝えた後、本当に緊張が解けているかの確認。警戒感が残っていたら冒頭の説明をもう一度丁寧に。</div>
       <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今日のヒアリングについて、事前に気になっていたことはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">現状の感情温度と関係性の全体像を把握する。「雰囲気」という曖昧な言葉でどれだけ具体的に語れるかを観察。</div>
       <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">今の店舗はどんな雰囲気ですか？チームはいかがですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
     </div>
 
@@ -914,33 +953,49 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 
       <div class="cat">
         <div class="cat-title">01 — 日々の仕事（約8分）</div>
+        <div class="q-intent">時間配分の実態からマネジメントの優先順位を把握。現場作業に追われているか、マネジメントに集中できているかで組織成熟度が見える。</div>
         <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">日々の仕事で、一番時間を使っていることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">役割の自己認識と委譲意識を確認。何をデレゲートできていないかが現在の課題の核心になることが多い。</div>
         <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">「これは自分の仕事だ」と思っていることと、「本当は誰かにやってほしい」と思っていることを教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">現在の困りごとを引き出す入り口。支援ニーズと組織課題を特定するための最初のフック。</div>
         <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">今の仕事で一番難しいと感じることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">昇格後の意識転換が伴っているかを確認。前の役割から脱却して店長として考えられているかを見る。</div>
         <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-new">新任（1年未満）</div><div class="q-text">店長になって変わったと感じることは？前の役職と比べて一番の違いは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">マネジメントスタイルの成長・変化を引き出す。自己改善の軌跡と学習意欲の有無が見える。</div>
         <div class="q grade"><div class="q-num">Q3b</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">ここ1〜2年で、自分のマネジメントスタイルに変化はありましたか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">02 — スタッフ・チーム（約10分）</div>
+        <div class="q-intent">チームの高パフォーマーをどう見ているか。人材評価の基準と観察の解像度を確認する。</div>
         <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今のチームで「頑張ってくれているな」と感じるスタッフはどんな人ですか？何が違いますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">副店長・リーダーへの育成ニーズを特定。期待と現実のギャップが育成計画の材料になる。</div>
         <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">副店長やリーダーに「ここをもっと伸ばしてほしい」と感じることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">育成行動の哲学を引き出す。教え方・任せ方・フィードバックの仕方に人材育成観が出る。</div>
         <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">スタッフを育てる上で、一番心がけていることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">経験の言語化と後継者育成への意識を確認。経験を教訓化できるかがコーチング適性の指標になる。</div>
         <div class="q grade"><div class="q-num">Q6a</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">後輩の店長に「これだけは伝えたい」ということがあれば教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">03 — 評価・給与・キャリア（約10分）</div>
+        <div class="q-intent">評価制度への率直な感想を引き出す。公平感・納得感・透明性のどこに課題があるかを特定する。</div>
         <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">今の評価制度について、率直にどう感じていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">評価への不満・諦め体験を聞く。ここが強いと離職やモチベーション低下のリスク因子になる。</div>
         <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">「頑張っても評価されない」と感じたことはありますか？どんな場面でしたか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">評価基準の理解度と透明性への要求を確認。基準が見えていないと行動変容は起きにくい。</div>
         <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">給与や昇格についての基準は、自分で理解できていますか？わかりにくい点はありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">キャリア志向と将来設計を把握。SV・本部への意欲があるかで育成投資の優先度が変わる。</div>
         <div class="q grade"><div class="q-num">Q9a</div><div class="q-body"><div class="grade-badge badge-vet">ベテラン（3年以上）</div><div class="q-text">次のキャリアステップとして何を考えていますか？SV・本部への興味はありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">04 — 会社・環境（約8分）</div>
+        <div class="q-intent">エンゲージメントの源泉を特定する。この会社で働く理由が明確かどうかで定着度が予測できる。</div>
         <div class="q"><div class="q-num">Q10</div><div class="q-body"><div class="q-text">この会社で働いていて「良いな」と思うことは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">改善要望の内容から組織課題と制度課題の両方を把握。建設的か批判的かも重要な観察点。</div>
         <div class="q"><div class="q-num">Q11</div><div class="q-body"><div class="q-text">改善してほしいことや、会社に伝えたいことがあれば教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">現場が人事に何を期待しているかを直接聞く。制度整備の優先順位付けに使う。</div>
         <div class="q"><div class="q-num">Q12</div><div class="q-body"><div class="q-text">人事部ができることで、一番期待することは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
       </div>
 
@@ -958,21 +1013,31 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
       </div>
       <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q-intent">オフでの没入体験の有無を確認。趣味の種類より「どれだけ集中できるか」が観察点。エネルギー量と好奇心の向きもわかる。</div>
         <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">休日の過ごし方からリカバリーパターンを把握。一人充電型か人と過ごす型かで職場での人間関係スタイルが推測できる。</div>
         <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q-intent">困難への向き合い方・努力の閾値・達成感の源泉を引き出す。「頑張った」の基準が高いか低いかも重要な観察点。</div>
         <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">チーム内でのロールスタイルの自己認識を確認。本人の認識と実際の行動パターンのズレに注目する。</div>
         <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？（まとめ役・実行役・アイデア出し など）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">仕事観・能力の定義を引き出す。「できる人」の定義が多面的かどうかで、評価者としての資質も見える。</div>
         <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q-intent">ストレスコーピングのパターンを把握。健全な発散方法を持っているかがバーンアウトリスクの指標になる。</div>
         <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">価値観の言語化能力と成熟度を確認。即答できるかで自己認識の深さがわかる。仕事との整合性も合わせて確認。</div>
         <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">動機づけ条件の自己認識を確認。どんな環境でパフォーマンスを発揮するかを理解しているかがセルフマネジメントの指標。</div>
         <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q-intent">将来志向の強さと具体性を確認。仕事・プライベート両面で語れるかで目標志向性の成熟度がわかる。</div>
         <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？仕事でもプライベートでも。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">組織全体への視座と当事者意識を測る。「何を・なぜ変えるか」の因果関係で問題意識の深さと大局観が見える。</div>
         <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="checklist">
@@ -1013,8 +1078,11 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-time">5-10 MIN</div>
         <div class="sec-sub">緊張をほぐす。まず話しやすい雰囲気を作る。</div>
       </div>
+      <div class="q-intent">場を温める最初の一手。話題への食いつき方・テンション・語り口でコミュニケーションスタイルの輪郭が見えてくる。</div>
       <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、仕事で印象に残ったことはありましたか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">「評価じゃない」と伝えた後、本当に緊張が解けているかの確認。警戒感が残っていたら冒頭の説明をもう一度丁寧に。</div>
       <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今の店舗の雰囲気はどうですか？チームは最近どんな感じですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">現状の感情温度と関係性の全体像を把握する。「雰囲気」という曖昧な言葉でどれだけ具体的に語れるかを観察。</div>
       <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">副店長になってどのくらいですか？最近どんなことが多い日々ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
     </div>
 
@@ -1027,30 +1095,43 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 
       <div class="cat">
         <div class="cat-title">01 — 今の役割（約8分）</div>
+        <div class="q-intent">やりがいの源泉を把握。内発的動機（成長・達成・貢献）か外発的動機（評価・報酬）かで動機づけ戦略が変わる。</div>
         <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">今の仕事でやりがいを感じる場面はどんな時ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">副店長としての役割認識を確認。実態と本来の役割にズレがないかを把握する。</div>
         <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">副店長として「これは自分が担っている」と感じる役割は何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">現在の困りごとからサポートニーズと組織課題を特定する。</div>
         <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">今の仕事で「ここがしんどい」と感じることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">店長昇格への意識・準備状況を確認。意識的に変えようとしているなら成長意欲が高い証拠。</div>
         <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-promo">昇格候補</div><div class="q-text">店長を意識して、最近意識的に変えていることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">02 — 店長・チームとの関係（約10分）</div>
+        <div class="q-intent">上司からの学習体験を把握。良い模倣モデルがいるかが成長速度に影響する。</div>
         <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今の店長のマネジメントで「学んでいる」と感じることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">自律性への欲求を確認。「任せてほしい」という発言がリーダーシップへの準備度の指標になる。</div>
         <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">店長に「もっと任せてほしい」「自分でやってみたい」と思うことはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">育成哲学の萌芽を引き出す。スタッフへの接し方に将来の店長像が見える。</div>
         <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">スタッフに対して「一番大切にしていること」は何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">03 — 評価・キャリア（約10分）</div>
+        <div class="q-intent">昇格意欲と不安の両面を把握。不安の内容（スキル・自信・ロールモデル不在）が育成ポイントになる。</div>
         <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">店長を目指したいと思いますか？目指す上で不安なことはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">評価の公平感・納得感を確認。不満があるなら具体的にどこかを掘り下げる。</div>
         <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">今の評価のされ方について、どう感じていますか？納得感はありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">基準明確化への反応で行動変容の余地と、現在の曖昧さへの不満度がわかる。</div>
         <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">「こういう行動をすれば評価が上がる」という基準が明確になったら、働き方は変わりますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">店長に向けた自己課題認識を引き出す。自己評価の精度と謙虚さのバランスを確認。</div>
         <div class="q grade"><div class="q-num">Q9a</div><div class="q-body"><div class="grade-badge badge-promo">昇格候補</div><div class="q-text">店長になるために「今の自分に足りない」と感じることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">04 — 会社・環境（約8分）</div>
+        <div class="q-intent">エンゲージメント要因を把握。長く働く理由と定着の条件を確認する。</div>
         <div class="q"><div class="q-num">Q10</div><div class="q-body"><div class="q-text">この会社で働いていて「良いな」と感じることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">職場・制度への不満や要望を率直に聞く。信頼関係ができていれば本音が出やすい。</div>
         <div class="q"><div class="q-num">Q11</div><div class="q-body"><div class="q-text">会社や上司に伝えたいことがあれば、自由に教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
       </div>
 
@@ -1067,21 +1148,31 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
       </div>
       <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q-intent">オフでの没入体験の有無を確認。趣味の種類より「どれだけ集中できるか」が観察点。エネルギー量と好奇心の向きもわかる。</div>
         <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">休日の過ごし方からリカバリーパターンを把握。一人充電型か人と過ごす型かで職場での人間関係スタイルが推測できる。</div>
         <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q-intent">困難への向き合い方・努力の閾値・達成感の源泉を引き出す。「頑張った」の基準が高いか低いかも重要な観察点。</div>
         <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">チーム内でのロールスタイルの自己認識を確認。本人の認識と実際の行動パターンのズレに注目する。</div>
         <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">仕事観・能力の定義を引き出す。「できる人」の定義が多面的かどうかで、評価者としての資質も見える。</div>
         <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q-intent">ストレスコーピングのパターンを把握。健全な発散方法を持っているかがバーンアウトリスクの指標になる。</div>
         <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">価値観の言語化能力と成熟度を確認。即答できるかで自己認識の深さがわかる。仕事との整合性も合わせて確認。</div>
         <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">動機づけ条件の自己認識を確認。どんな環境でパフォーマンスを発揮するかを理解しているかがセルフマネジメントの指標。</div>
         <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q-intent">将来志向の強さと具体性を確認。仕事・プライベート両面で語れるかで目標志向性の成熟度がわかる。</div>
         <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">10年後、どんな自分でありたいですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">組織全体への視座と当事者意識を測る。「何を・なぜ変えるか」の因果関係で問題意識の深さと大局観が見える。</div>
         <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="checklist">
@@ -1122,8 +1213,11 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-time">5-10 MIN</div>
         <div class="sec-sub">緊張をほぐす。まず楽しい話から入る。</div>
       </div>
+      <div class="q-intent">場を温める最初の一手。話題への食いつき方・テンション・語り口でコミュニケーションスタイルの輪郭が見えてくる。</div>
       <div class="q"><div class="q-num">I1</div><div class="q-body"><div class="q-text">今日はありがとうございます。最近、仕事で楽しかったことや嬉しかったことはありましたか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">「評価じゃない」と伝えた後、本当に緊張が解けているかの確認。警戒感が残っていたら冒頭の説明をもう一度丁寧に。</div>
       <div class="q"><div class="q-num">I2</div><div class="q-body"><div class="q-text">今日のヒアリングについて、事前に気になっていたことはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+      <div class="q-intent">現状の感情温度と関係性の全体像を把握する。「雰囲気」という曖昧な言葉でどれだけ具体的に語れるかを観察。</div>
       <div class="q"><div class="q-num">I3</div><div class="q-body"><div class="q-text">今の店舗の雰囲気はどうですか？最近どんな感じですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
     </div>
 
@@ -1136,24 +1230,35 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
 
       <div class="cat">
         <div class="cat-title">01 — 仕事のやりがいと課題（約10分）</div>
+        <div class="q-intent">やりがいの源泉を把握。どんな状況で「仕事が楽しい」と感じるかがモチベーション設計の鍵になる。</div>
         <div class="q"><div class="q-num">Q1</div><div class="q-body"><div class="q-text">今の仕事でやりがいを感じる場面はどんな時ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">ストレスや負担の実態を引き出す。組織課題・業務課題・人間関係の問題の仕分けができる。</div>
         <div class="q"><div class="q-num">Q2</div><div class="q-body"><div class="q-text">逆に「ここがしんどいな」と感じることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">環境改善への要望から現在の働きにくさを特定する。具体的な改善ニーズが見えてくる。</div>
         <div class="q"><div class="q-num">Q3</div><div class="q-body"><div class="q-text">仕事をする上で「これがあればもっと働きやすい」と思うものはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">リーダーとしての難しさを引き出す。チームマネジメントの実態と課題認識を把握する。</div>
         <div class="q grade"><div class="q-num">Q3a</div><div class="q-body"><div class="grade-badge badge-lead">リーダー</div><div class="q-text">リーダーとして、チームをまとめる上で一番難しいと感じることは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">02 — チーム・環境（約8分）</div>
+        <div class="q-intent">チームの雰囲気と人間関係の実態を把握。良いところも語れるかで視野の広さも確認できる。</div>
         <div class="q"><div class="q-num">Q4</div><div class="q-body"><div class="q-text">今のチームの雰囲気はどうですか？良いところと、もっとこうなればと思うところを教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">上司への要望から、現在のリーダーシップの課題と本人が求めるマネジメントスタイルがわかる。</div>
         <div class="q"><div class="q-num">Q5</div><div class="q-body"><div class="q-text">上司や店長について、「こうしてほしい」と思うことはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
       </div>
 
       <div class="cat">
         <div class="cat-title">03 — キャリア・評価（約12分）</div>
+        <div class="q-intent">評価への納得感を確認。不満があるなら根拠（何が不公平か）まで掘り下げる。</div>
         <div class="q"><div class="q-num">Q6</div><div class="q-body"><div class="q-text">今の評価のされ方について、どう感じていますか？納得感はありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">昇格意欲の有無と理由を把握。「なりたくない」なら理由を探る（不安・ロールモデル不在・待遇）。</div>
         <div class="q"><div class="q-num">Q7</div><div class="q-body"><div class="q-text">副店長や店長を目指したいと思いますか？正直なところを教えてください。</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">基準透明化への反応で行動変容の余地を測る。基準さえわかれば動けるタイプかを確認する。</div>
         <div class="q"><div class="q-num">Q8</div><div class="q-body"><div class="q-text">「こういう行動をすれば評価が上がる」という基準が明確になったら、働き方は変わりますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">キャリア志向と将来計画を把握。この会社でどう成長したいかのイメージが明確かを確認する。</div>
         <div class="q grade"><div class="q-num">Q8a</div><div class="q-body"><div class="grade-badge badge-lead">リーダー</div><div class="q-text">今後どんなキャリアパスを描いていますか？この会社でどうなっていきたいですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">定着意欲と離職リスクを同時に把握。「不安」の内容によって打てる対策が変わってくる。</div>
         <div class="q"><div class="q-num">Q9</div><div class="q-body"><div class="q-text">この会社で働き続けたいと思えている理由は何ですか？逆に、不安に感じることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
       </div>
 
@@ -1170,21 +1275,31 @@ body.is-mobile .submit-btn { width: 100%; max-width: 360px; }
         <div class="sec-sub">性格・価値観・人となりを自然な会話で引き出す。</div>
       </div>
       <div class="cat"><div class="cat-title">テーマ A — 日常・興味</div>
+        <div class="q-intent">オフでの没入体験の有無を確認。趣味の種類より「どれだけ集中できるか」が観察点。エネルギー量と好奇心の向きもわかる。</div>
         <div class="q"><div class="q-num">C1</div><div class="q-body"><div class="q-text">仕事以外で、最近ハマっていることや楽しみにしていることはありますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">休日の過ごし方からリカバリーパターンを把握。一人充電型か人と過ごす型かで職場での人間関係スタイルが推測できる。</div>
         <div class="q"><div class="q-num">C2</div><div class="q-body"><div class="q-text">オフの日は大体どんな過ごし方をしていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ B — 自己認識</div>
+        <div class="q-intent">困難への向き合い方・努力の閾値・達成感の源泉を引き出す。「頑張った」の基準が高いか低いかも重要な観察点。</div>
         <div class="q"><div class="q-num">C3</div><div class="q-body"><div class="q-text">人生の中で「一番頑張ったな」と思うことは何ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:56px"></div></div></div>
+        <div class="q-intent">チーム内でのロールスタイルの自己認識を確認。本人の認識と実際の行動パターンのズレに注目する。</div>
         <div class="q"><div class="q-num">C4</div><div class="q-body"><div class="q-text">チームや組織の中で、自分はどんなタイプだと思いますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">仕事観・能力の定義を引き出す。「できる人」の定義が多面的かどうかで、評価者としての資質も見える。</div>
         <div class="q"><div class="q-num">C5</div><div class="q-body"><div class="q-text">「この人、仕事できるな」と感じるのはどんな瞬間ですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ C — 価値観・モチベーション</div>
+        <div class="q-intent">ストレスコーピングのパターンを把握。健全な発散方法を持っているかがバーンアウトリスクの指標になる。</div>
         <div class="q"><div class="q-num">C6</div><div class="q-body"><div class="q-text">ストレスを感じたとき、どうやって気持ちを切り替えていますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">価値観の言語化能力と成熟度を確認。即答できるかで自己認識の深さがわかる。仕事との整合性も合わせて確認。</div>
         <div class="q"><div class="q-num">C7</div><div class="q-body"><div class="q-text">大切にしている価値観を3つ挙げるとしたら？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">動機づけ条件の自己認識を確認。どんな環境でパフォーマンスを発揮するかを理解しているかがセルフマネジメントの指標。</div>
         <div class="q"><div class="q-num">C8</div><div class="q-body"><div class="q-text">どんな職場環境だと一番力を発揮できますか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="cat"><div class="cat-title">テーマ D — ビジョン</div>
+        <div class="q-intent">将来志向の強さと具体性を確認。仕事・プライベート両面で語れるかで目標志向性の成熟度がわかる。</div>
         <div class="q"><div class="q-num">C9</div><div class="q-body"><div class="q-text">5〜10年後、どんな自分でありたいですか？</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
+        <div class="q-intent">組織全体への視座と当事者意識を測る。「何を・なぜ変えるか」の因果関係で問題意識の深さと大局観が見える。</div>
         <div class="q"><div class="q-num">C10</div><div class="q-body"><div class="q-text">もし自分がこの会社のトップだったら、まず何を変えますか？（笑）</div><div class="q-input editable" contenteditable="plaintext-only" spellcheck="false" data-base-size="13" style="height:28px"></div></div></div>
       </div>
       <div class="checklist">
