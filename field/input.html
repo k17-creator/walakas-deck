@@ -1892,6 +1892,8 @@ function setMode(mode) {
 
     document.querySelectorAll('.q-input, .memo-input, .info-line.editable').forEach(function (el) {
       el.addEventListener('input',  function () { fitText(el); checkSubmitState(); });
+      el.addEventListener('keyup',  checkSubmitState);
+      el.addEventListener('blur',   checkSubmitState);
       el.addEventListener('paste',  onPaste);
     });
 
@@ -1900,6 +1902,16 @@ function setMode(mode) {
         var box = row.querySelector('.check-box');
         if (box) box.classList.toggle('checked');
       });
+    });
+
+    // MutationObserver：モバイルChrome での input イベント不発を補完
+    var obsTimer;
+    var observer = new MutationObserver(function() {
+      clearTimeout(obsTimer);
+      obsTimer = setTimeout(checkSubmitState, 80);
+    });
+    document.querySelectorAll('.role-content').forEach(function(rc) {
+      observer.observe(rc, { characterData: true, childList: true, subtree: true });
     });
 
     checkSubmitState();
